@@ -6,14 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Archives: 2017/6 | inRush</title>
+  <title>慕课网音乐APP (第一天) | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="inRush">
-<meta property="og:url" content="http://inrush.me/archives/2017/06/index.html">
+  <meta name="description" content="今天是学习音乐APP的第一天,今天打算把项目的基本架构给完成,大概的理解清楚整个webapp的基本架构  应用整体架构">
+<meta name="keywords" content="nodejs,vue,webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="慕课网音乐APP (第一天)">
+<meta property="og:url" content="http://inrush.me/2017/06/15/慕课网音乐APP-第一天/index.html">
 <meta property="og:site_name" content="inRush">
+<meta property="og:description" content="今天是学习音乐APP的第一天,今天打算把项目的基本架构给完成,大概的理解清楚整个webapp的基本架构  应用整体架构">
+<meta property="og:image" content="http://opmeyn1wl.bkt.clouddn.com/201706151497528392-vue音乐WebApp架构.png">
+<meta property="og:image" content="http://opmeyn1wl.bkt.clouddn.com/201706151497539161-未命名文件.png">
+<meta property="og:image" content="http://opmeyn1wl.bkt.clouddn.com/201706151497535820-A981126F-6292-40CB-A822-7EC055BDDCDB.png">
+<meta property="og:updated_time" content="2017-06-15T15:23:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="inRush">
+<meta name="twitter:title" content="慕课网音乐APP (第一天)">
+<meta name="twitter:description" content="今天是学习音乐APP的第一天,今天打算把项目的基本架构给完成,大概的理解清楚整个webapp的基本架构  应用整体架构">
+<meta name="twitter:image" content="http://opmeyn1wl.bkt.clouddn.com/201706151497528392-vue音乐WebApp架构.png">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -172,36 +181,86 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-慕课网音乐APP-第一天" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      慕课网音乐APP (第一天)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/15/慕课网音乐APP-第一天/" class="archive-article-date">
+
+        
+        <a href="/2017/06/15/慕课网音乐APP-第一天/" class="archive-article-date">
   	<time datetime="2017-06-15T15:11:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/15/慕课网音乐APP-第一天/">慕课网音乐APP (第一天)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>今天是学习音乐APP的第一天,今天打算把项目的基本架构给完成,大概的理解清楚整个webapp的基本架构</p>
+</blockquote>
+<h2 id="应用整体架构"><a href="#应用整体架构" class="headerlink" title="应用整体架构"></a>应用整体架构</h2><p><img src="http://opmeyn1wl.bkt.clouddn.com/201706151497528392-vue音乐WebApp架构.png" alt="基本架构图"></p>
+<a id="more"></a>
+<h2 id="项目初期准备"><a href="#项目初期准备" class="headerlink" title="项目初期准备"></a>项目初期准备</h2><p>  在课程中,老师给好的源码都是用stylus写的,我看着不习惯这种风格的,我还是习惯用sass来编写css样式,所以嘛,我还是自己重新自己建一个vue项目,用sass作为css的预编译器好了</p>
+<h3 id="项目的初始化"><a href="#项目的初始化" class="headerlink" title="项目的初始化"></a><strong>项目的初始化</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ vue init webpack vue-music</div><div class="line">$ cd vue-music</div><div class="line">$ npm install</div><div class="line">$ npm run dev</div></pre></td></tr></table></figure>
+<h3 id="项目src目录组成"><a href="#项目src目录组成" class="headerlink" title="项目src目录组成"></a><strong>项目src目录组成</strong></h3><p>这次的src目录主要由以下五部分组成</p>
+<p><img src="http://opmeyn1wl.bkt.clouddn.com/201706151497539161-未命名文件.png" alt=""></p>
+<blockquote>
+<p>其他目录与vue脚手架webpack模板默认生成目录一致</p>
+</blockquote>
+<h3 id="遇到的坑-教训"><a href="#遇到的坑-教训" class="headerlink" title="遇到的坑,教训"></a><strong>遇到的坑,教训</strong></h3><blockquote>
+<p>  这次遇到的问题和上次写饿了么的时候是一样的,唉,上次的过去很久了,都忘了,就是在项目中的webpack添加scss编译器loader的时候,不知道怎么添加进去了…真是☹️,唉!</p>
+</blockquote>
+<p>开始的时候,我将教程中老师github上的源码中的src目录复制到了我刚刚初始化好的目录中,然后依稀记得上次怎么添加scss loader的,然后我就来了一遍,然后就出现了下面的错误</p>
+<p><img src="http://opmeyn1wl.bkt.clouddn.com/201706151497535820-A981126F-6292-40CB-A822-7EC055BDDCDB.png" alt=""></p>
+<p>按照它的意思是,我没有安装相关的依赖,它找不到,但是我已经安装了呀,为什么会说我没有安装,然后我又翻了下之前写的饿了么的项目,反反复复的对照了下,发现也不是webpack的配置错误啊,而且在package.json里也添加了sass-loader了,其他都是一样的啊,为什么还是会说找不到依赖的呢,然后我以为可能是安装,然后就去Google了一下,看了很多都是说可能没有<strong>–save</strong>的原因,找了很久,终于,在最后我发现了一个特傻的错误,原来在原来的src目录中,老师写的vue文件中使用的是<strong>stylus</strong>,我没有改成<strong>scss</strong>,然后就一直报找不到loader的错误,真是无语了😫</p>
+<p>  最后,解决了上面的那个错误,还是没有成功的运行起来,原因在错误提示上也提示的很清楚了,就是还没有装完sass编译器所需要的依赖</p>
+<p><strong>以下是vue使用sass预编译器需要安装的依赖</strong></p>
+<blockquote>
+<ol>
+<li>sass-loader</li>
+<li>node-sass</li>
+</ol>
+</blockquote>
+<p>造成这次失误的原因:</p>
+<ul>
+<li>太粗心了</li>
+<li>对webpack不够熟悉</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>暂时没有打赏的打算<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -221,118 +280,100 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2017/06/15/慕课网音乐APP-第一天/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/15/慕课网音乐APP/" class="archive-article-date">
-  	<time datetime="2017-06-15T10:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/15/慕课网音乐APP/">慕课网音乐APP</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网音乐WebApp学习/" class="article-tag-list-link color4">慕课网音乐WebApp学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/15/慕课网音乐APP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">慕课网音乐APP</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/13/慕课网vue高仿饿了么/" class="archive-article-date">
-  	<time datetime="2017-06-13T10:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/13/慕课网vue高仿饿了么/">慕课网vue高仿饿了么</a>
-    </h1>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://inrush.me/2017/06/15/慕课网音乐APP-第一天/", 
+    sourceId: "慕课网音乐APP-第一天",
+    productKey: "48e5adfd3ac5447d9a45d3e438d51c95",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -355,8 +396,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
