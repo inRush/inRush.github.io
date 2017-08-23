@@ -174,6 +174,148 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PHP和Nginx组合-页面发送Ajax请求出现502" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/">PHP和Nginx组合,页面发送Ajax请求出现502</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/" class="archive-article-date">
+  	<time datetime="2017-08-23T15:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.<br>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="external">这里</a>找到了,添加了下面的四句到nginx.conf</p>
+<blockquote>
+<p>fastcgi_temp_file_write_size 10m;<br>fastcgi_busy_buffers_size 512k;<br>fastcgi_buffer_size 512k;<br>fastcgi_buffers 16 512k;</p>
+</blockquote>
+<p><strong>果然!!!,可以了!!!</strong></p>
+<blockquote>
+<p>可以是可以了,可是不知道为什么呀,那怎么行的呢,然后又各种Google</p>
+</blockquote>
+<p>&emsp;&emsp;哈哈,在<a href="https://blog.tanteng.me/2016/03/nginx-buffer-params/" target="_blank" rel="external">这里</a>找到了答案,这几句话,主要的意思就是设置 FastCGI Server 的 Response 在 Nginx 中的缓冲区的大小,我就想难道是相应的Response太大了,导致了nginx报502??,可是想想不对啊,我调试的时候有的Response比出现502的Response还大的呀,为什么就是这几个不行呢,然后就想到了查看nginx的错误日志(真特么傻,现在才想到😫,都怪自己的经验太少了),找到了/var/log/nginx/error.log这个文件,哎,果然,有一堆一堆的错误😀,主要是显示了下面的这个错误:</p>
+<blockquote>
+<p>upstream sent too big header while reading response header from upstream</p>
+</blockquote>
+<p>主要的意思就是上游的响应头太大了,哎,奇怪了🤔,响应头太大??,然后我就去浏览器上看了下那几个Ajax请求,果然,cookie超级长,怪不得,哇,真是坑爹啊,然后又根据这个问题Google了一番,哈哈哈,果然就是上面的那样,<a href="https://stackoverflow.com/questions/23844761/upstream-sent-too-big-header-while-reading-response-header-from-upstream" target="_blank" rel="external">戳这</a>☹️,不过,给出的解决方案只写了两条</p>
+<blockquote>
+<p>fastcgi_buffers<br>fastcgi_buffer_size</p>
+</blockquote>
+<p>这两条也正正是上面我找到答案主要说明的两句,就是给FastCGI 的缓冲区设置大一点,啊😤,又解决了一个问题,哈哈哈哈,这次吸取了经验,这类错误一定要去看下错误日志先,不然像个盲头苍蝇一样,一顿乱搜,可能这次运气好,,给我瞎搜,给搜出来了,不过也浪费了不少的时间,血的教训啊😌</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-JavaScript中call-apply-bind的用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/10/JavaScript中call-apply-bind的用法/">JavaScript中call,apply,bind的用法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/10/JavaScript中call-apply-bind的用法/" class="archive-article-date">
+  	<time datetime="2017-08-10T06:52:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/10/JavaScript中call-apply-bind的用法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-慕课网音乐APP-第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -511,6 +653,18 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>

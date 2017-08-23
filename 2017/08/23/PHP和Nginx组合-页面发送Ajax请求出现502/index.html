@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>慕课网vue高仿饿了么 | inRush</title>
+  <title>PHP和Nginx组合,页面发送Ajax请求出现502 | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="  这门课在慕课网上算是比较好的一门vue课程了,个人觉得啊,这个视频是收费的,198对于一个学生来说还是有点小贵的,课程讲的都是vue比较浅的一些内容,适合刚入门vue的人.这门课是用vue1.0编写的,在我学习这门课程的时候vue已经是2.0的了,我呢,通常是比较喜欢使用比较新的版本的,所以我就使用了vue2.0的,就是因为这个决定,导致了后面一系列的坑,后来看了vue1.0和">
-<meta name="keywords" content="nodejs,vue,webpack">
+  <meta name="description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.&amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种G">
+<meta name="keywords" content="php,nginx,mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="慕课网vue高仿饿了么">
-<meta property="og:url" content="http://inrush.me/2017/06/13/慕课网vue高仿饿了么/index.html">
+<meta property="og:title" content="PHP和Nginx组合,页面发送Ajax请求出现502">
+<meta property="og:url" content="http://inrush.me/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="  这门课在慕课网上算是比较好的一门vue课程了,个人觉得啊,这个视频是收费的,198对于一个学生来说还是有点小贵的,课程讲的都是vue比较浅的一些内容,适合刚入门vue的人.这门课是用vue1.0编写的,在我学习这门课程的时候vue已经是2.0的了,我呢,通常是比较喜欢使用比较新的版本的,所以我就使用了vue2.0的,就是因为这个决定,导致了后面一系列的坑,后来看了vue1.0和">
-<meta property="og:image" content="http://opmeyn1wl.bkt.clouddn.com/images/png/A350DD50-F91F-4700-B674-E8413657CB92.png">
-<meta property="og:image" content="http://opmeyn1wl.bkt.clouddn.com/images/png/58B94362-EB0F-4849-93FB-B3CDF16C5D57.png">
-<meta property="og:image" content="http://opmeyn1wl.bkt.clouddn.com/images/png/6212623B-4793-4A6B-BE67-2DA0426AACFF.png">
-<meta property="og:image" content="https://cn.vuejs.org/images/transition.png">
-<meta property="og:updated_time" content="2017-06-15T15:30:31.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.&amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种G">
+<meta property="og:updated_time" content="2017-08-23T16:09:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="慕课网vue高仿饿了么">
-<meta name="twitter:description" content="  这门课在慕课网上算是比较好的一门vue课程了,个人觉得啊,这个视频是收费的,198对于一个学生来说还是有点小贵的,课程讲的都是vue比较浅的一些内容,适合刚入门vue的人.这门课是用vue1.0编写的,在我学习这门课程的时候vue已经是2.0的了,我呢,通常是比较喜欢使用比较新的版本的,所以我就使用了vue2.0的,就是因为这个决定,导致了后面一系列的坑,后来看了vue1.0和">
-<meta name="twitter:image" content="http://opmeyn1wl.bkt.clouddn.com/images/png/A350DD50-F91F-4700-B674-E8413657CB92.png">
+<meta name="twitter:title" content="PHP和Nginx组合,页面发送Ajax请求出现502">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.&amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种G">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -182,89 +177,44 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-慕课网vue高仿饿了么" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PHP和Nginx组合-页面发送Ajax请求出现502" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      慕课网vue高仿饿了么
+      PHP和Nginx组合,页面发送Ajax请求出现502
     </h1>
   
 
         
-        <a href="/2017/06/13/慕课网vue高仿饿了么/" class="archive-article-date">
-  	<time datetime="2017-06-13T10:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
+        <a href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/" class="archive-article-date">
+  	<time datetime="2017-08-23T15:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>  这门课在慕课网上算是比较好的一门vue课程了,个人觉得啊,这个视频是收费的,198对于一个学生来说还是有点小贵的,课程讲的都是vue比较浅的一些内容,适合刚入门vue的人.这门课是用vue1.0编写的,在我学习这门课程的时候vue已经是2.0的了,我呢,通常是比较喜欢使用比较新的版本的,所以我就使用了vue2.0的,就是因为这个决定,导致了后面一系列的坑,后来看了vue1.0和2.0的差异的时候,发现这两个版本竟然有很多不兼容的地方,没办法,只能一步一个坑,慢慢踩过去了.<br><br>&emsp;&emsp;后来发现,视频的最后竟然有升级的教程的,唉,不过能通过自己查阅文档,对其中不兼容的地方进行修改,还是很有成就感的,虽然发现有升级视频了,但是我还是喜欢自己查阅文档,自己摸索进行升级,这样对每次地方都能有一个深刻的印象.<br>  在这门课中,主要能学到一下的vue知识吧</p>
-<ul>
-<li><strong><em>vue的模块化,组件化</em></strong></li>
-<li><strong><em>vue的基本架构设计</em></strong></li>
-<li><strong><em>了解webApp的基本开发流程,以及一些开发的技巧</em></strong></li>
-<li><strong><em>webpack 的一些基本的知识</em></strong></li>
-</ul>
+        <p>&emsp;&emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.<br>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="external">这里</a>找到了,添加了下面的四句到nginx.conf</p>
+<blockquote>
+<p>fastcgi_temp_file_write_size 10m;<br>fastcgi_busy_buffers_size 512k;<br>fastcgi_buffer_size 512k;<br>fastcgi_buffers 16 512k;</p>
 </blockquote>
-<a id="more"></a> 
-<h2 id="下面附几张我做完-其实是抄完的-哈哈哈哈😌-以后的效果图"><a href="#下面附几张我做完-其实是抄完的-哈哈哈哈😌-以后的效果图" class="headerlink" title="下面附几张我做完(其实是抄完的,哈哈哈哈😌)以后的效果图"></a>下面附几张我做完(其实是抄完的,哈哈哈哈😌)以后的效果图</h2><p><strong><em>商品页</em></strong></p>
-<p><img src="http://opmeyn1wl.bkt.clouddn.com/images/png/A350DD50-F91F-4700-B674-E8413657CB92.png" alt=""></p>
-<p><strong><em>评价页</em></strong></p>
-<p><img src="http://opmeyn1wl.bkt.clouddn.com/images/png/58B94362-EB0F-4849-93FB-B3CDF16C5D57.png" alt=""></p>
-<p><strong><em>商家页</em></strong></p>
-<p><img src="http://opmeyn1wl.bkt.clouddn.com/images/png/6212623B-4793-4A6B-BE67-2DA0426AACFF.png" alt=""></p>
-<h2 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h2><video width="480" height="320" controls><br><source src="http://opmeyn1wl.bkt.clouddn.com/201706151497492609-饿了么演示.mp4"><br></video>
+<p><strong>果然!!!,可以了!!!</strong></p>
+<blockquote>
+<p>可以是可以了,可是不知道为什么呀,那怎么行的呢,然后又各种Google</p>
+</blockquote>
+<p>&emsp;&emsp;哈哈,在<a href="https://blog.tanteng.me/2016/03/nginx-buffer-params/" target="_blank" rel="external">这里</a>找到了答案,这几句话,主要的意思就是设置 FastCGI Server 的 Response 在 Nginx 中的缓冲区的大小,我就想难道是相应的Response太大了,导致了nginx报502??,可是想想不对啊,我调试的时候有的Response比出现502的Response还大的呀,为什么就是这几个不行呢,然后就想到了查看nginx的错误日志(真特么傻,现在才想到😫,都怪自己的经验太少了),找到了/var/log/nginx/error.log这个文件,哎,果然,有一堆一堆的错误😀,主要是显示了下面的这个错误:</p>
+<blockquote>
+<p>upstream sent too big header while reading response header from upstream</p>
+</blockquote>
+<p>主要的意思就是上游的响应头太大了,哎,奇怪了🤔,响应头太大??,然后我就去浏览器上看了下那几个Ajax请求,果然,cookie超级长,怪不得,哇,真是坑爹啊,然后又根据这个问题Google了一番,哈哈哈,果然就是上面的那样,<a href="https://stackoverflow.com/questions/23844761/upstream-sent-too-big-header-while-reading-response-header-from-upstream" target="_blank" rel="external">戳这</a>☹️,不过,给出的解决方案只写了两条</p>
+<blockquote>
+<p>fastcgi_buffers<br>fastcgi_buffer_size</p>
+</blockquote>
+<p>这两条也正正是上面我找到答案主要说明的两句,就是给FastCGI 的缓冲区设置大一点,啊😤,又解决了一个问题,哈哈哈哈,这次吸取了经验,这类错误一定要去看下错误日志先,不然像个盲头苍蝇一样,一顿乱搜,可能这次运气好,,给我瞎搜,给搜出来了,不过也浪费了不少的时间,血的教训啊😌</p>
 
-<blockquote>
-<p>其实还原度还是挺高的,其中的动画也做的挺好的,我也是刚开始才学的vue,之前一直用原生的js,jQuery写动画,要写挺多东西的,而vue中的动画挺简便的,我觉得vue写动画还是比较爽的</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>下面是在由1.0升级到2.0一些踩过的坑,这篇博客是写完以后才写的,😆 有些忘掉了</p>
-</blockquote>
-<h3 id="transition-过渡动画"><a href="#transition-过渡动画" class="headerlink" title="transition 过渡动画"></a><strong>transition 过渡动画</strong></h3><p><a href="https://cn.vuejs.org/v2/guide/transitions.html" target="_blank" rel="external">vue2.0 官网transition过渡效果</a></p>
-<p>在vue1.0中transition是一个属性,但是到了2.0以后就变成了一个元素了<br><br>2.0版本的transition用法</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">    这里面就是需要进行动画展示的元素</div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>transition还有很多的属性进行配置,视频中设置动画的名称可以使用这个元素的name属性<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"trans"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"class"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>上面的这个样子在css中就可以用trans作为前缀了<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.class&#123;</div><div class="line">    trans-enter&#123;</div><div class="line">        transition: all .5s;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在写css的时候,vue2.0和vue1.0的也有些不同</p>
-<p>在1.0的时候,css类名有三个</p>
-<blockquote>
-<ol>
-<li><span style="color:#eb8830"><strong>v-transition:</strong></span> 始终保留在元素上。</li>
-<li><span style="color:#eb8830"><strong>v-enter:</strong></span> 定义进入过渡的开始状态。只应用一帧然后立即删除。</li>
-<li><span style="color:#eb8830"><strong>v-leave:</strong></span> 定义离开过渡的结束状态。在离开过渡开始时生效，在它结束后删除。</li>
-</ol>
-</blockquote>
-<p>在2.0中,css中就有四个css的类名了</p>
-<blockquote>
-<ol>
-<li><span style="color:#eb8830"><strong>v-enter:</strong></span>进入过渡的开始状态。在元素被插入时生效，在下一个帧移除。</li>
-<li><span style="color:#eb8830"><strong>v-enter-active:</strong></span>进入过渡的结束状态。在元素被插入时生效，在 transition/animation 完成之后移除。</li>
-<li><span style="color:#eb8830"><strong>v-leave:</strong></span>定义离开过渡的开始状态。在离开过渡被触发时生效，在下一个帧移除。</li>
-<li><span style="color:#eb8830"><strong>v-leave-active:</strong></span>定义离开过渡的结束状态。在离开过渡被触发时生效，在 transition/animation 完成之后移除。</li>
-</ol>
-</blockquote>
-<p>  视频的1.0中,是使用<strong><em>v-transition</em></strong>这个css来定义动画的最终状态的,而在2.0中,可以直接在需要进行动画切换的元素的css属性中添加动画的最终状态的,而<strong><em>v-enter</em></strong>则是设置动画的起始状态的,就是动画在执行开始的时候的状态,而<strong><em>v-enter-active</em></strong>是设置进入动画的结束状态,<strong><em>v-leave</em></strong>就是设置动画离开时的起始状态,<strong><em>v-leave-active</em></strong>就是设置离开时的结束状态.这几个css类在开始的时候我是一脸懵逼的,看着有些混乱,这四个类所代表的状态一开始的时候没有弄清楚,这个和视频里的又有点不一样的,所以就去找了一些2.0动画的例子,最后自己尝试了一下,终于给弄清楚里面的状态了.</p>
-<p>  其实1.0的<strong><em>v-transition</em></strong>在2.0中被去除了,这个属性其实我觉得就是有点多余的,这个属性就是设置过渡元素的最终的状态而已,其实只要在过渡元素的css属性上写上最终状态就好了,2.0的过渡状态的分割更加合理,灵活</p>
-<p>这是官网的一张动画状态图,只要理解了,其实就很简单的了</p>
-<p><img src="https://cn.vuejs.org/images/transition.png" alt=""></p>
-<p>下面是个透明度渐变的例子</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"trans"</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"class"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">.class&#123;</div><div class="line">  transititn: all .5s;</div><div class="line">  opacity: 1; //设置元素的最终状态</div><div class="line">  //设置元素进入时的开始状态和离开时的结束状态 ,</div><div class="line">  //上面设置的最终状态在开始的时候作为过渡动画的结束态,</div><div class="line">  //在过渡动画离开时作为起始态</div><div class="line">  &amp;.trans-enter,</div><div class="line">  &amp;.trans-leave-active&#123; </div><div class="line">    opacity: 0; //设置为透明</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Vue-JavaScript钩子"><a href="#Vue-JavaScript钩子" class="headerlink" title="Vue JavaScript钩子"></a><strong>Vue JavaScript钩子</strong></h3><blockquote>
-<p>  在vue中,除了可以使用css写动画,当然还可以用JavaScript来写的啦,很多丰富炫丽的动画,其实都是由JavaScript写的</p>
-</blockquote>
-<p><a href="https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-钩子" target="_blank" rel="external">vue2.0官网过渡动画 JavaScript钩子介绍</a></p>
-<p>  在这个饿了么视频中,就用到了这个钩子函数来编写动画,视频中的添加购物车的时候,小球的那个动画就是用这些钩子函数进行编写的.</p>
-<blockquote>
-<p>上面就是我对vue2.0动画的一下简单的理解,有错的还望能指正.</p>
-</blockquote>
-<h3 id="饿了么的就先写到这里先-后面再慢慢总结"><a href="#饿了么的就先写到这里先-后面再慢慢总结" class="headerlink" title="饿了么的就先写到这里先,后面再慢慢总结"></a>饿了么的就先写到这里先,后面再慢慢总结</h3>
       
 
       
@@ -298,15 +248,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -318,7 +268,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网学习/" class="article-tag-list-link color1">慕课网学习</a>
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
         		</li>
       		
 		</ul>
@@ -373,7 +323,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2017/06/13/慕课网vue高仿饿了么/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -387,15 +337,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/06/15/慕课网音乐APP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          慕课网音乐APP
-        
-      </div>
-    </a>
   
+    <a href="/2017/08/10/JavaScript中call-apply-bind的用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript中call,apply,bind的用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -409,8 +355,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://inrush.me/2017/06/13/慕课网vue高仿饿了么/", 
-    sourceId: "慕课网vue高仿饿了么",
+    url: "http://inrush.me/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/", 
+    sourceId: "PHP和Nginx组合-页面发送Ajax请求出现502",
     productKey: "48e5adfd3ac5447d9a45d3e438d51c95",
     target: "cloud-tie-wrapper"
   };
