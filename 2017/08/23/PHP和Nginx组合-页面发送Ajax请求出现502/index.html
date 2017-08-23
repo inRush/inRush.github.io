@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://inrush.me">
   <title>PHP和Nginx组合,页面发送Ajax请求出现502 | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.&amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种G">
+  <meta name="description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.  &amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就">
 <meta name="keywords" content="php,nginx,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP和Nginx组合,页面发送Ajax请求出现502">
 <meta property="og:url" content="http://inrush.me/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.&amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种G">
-<meta property="og:updated_time" content="2017-08-23T16:09:50.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.  &amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就">
+<meta property="og:updated_time" content="2017-08-23T16:17:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP和Nginx组合,页面发送Ajax请求出现502">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.&amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种G">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.  &amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -197,11 +197,14 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.<br>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="external">这里</a>找到了,添加了下面的四句到nginx.conf</p>
+        <blockquote>
+<p>&emsp;&emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.</p>
+</blockquote>
+<p>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="external">这里</a>找到了,添加了下面的四句到nginx.conf</p>
 <blockquote>
 <p>fastcgi_temp_file_write_size 10m;<br>fastcgi_busy_buffers_size 512k;<br>fastcgi_buffer_size 512k;<br>fastcgi_buffers 16 512k;</p>
 </blockquote>
-<p><strong>果然!!!,可以了!!!</strong></p>
+<p><strong>果然!!!,可以了!!!</strong><br><a id="more"></a></p>
 <blockquote>
 <p>可以是可以了,可是不知道为什么呀,那怎么行的呢,然后又各种Google</p>
 </blockquote>
@@ -447,18 +450,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
@@ -468,6 +459,18 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
             
             <div class="clearfix"></div>
