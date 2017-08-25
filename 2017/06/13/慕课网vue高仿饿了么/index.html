@@ -408,10 +408,58 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="container"></div>
+  <div id="comments-container" class="comments"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<style>
+.comments{
+  background: #fff;
+  margin: 0 30px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease-in;
+  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+.mid-col.show .comments,
+.mid-col.show .gitment-comment-header,
+.mid-col.show .gitment-editor-body textarea{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.gitment-comment-header{
+  padding: 5px;
+}
+.gitment-editor-footer button,
+.gitment-comment-main,
+.gitment-editor-main{
+  border-radius: 3px;
+}
+</style>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
+const myTheme = {
+  render(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    // container.className = 'gitment-container gitment-root-container'
+
+     // your custom component
+    container.appendChild(instance.renderSomething(state, instance))
+
+    container.appendChild(instance.renderHeader(state, instance))
+    container.appendChild(instance.renderEditor(state, instance))
+    container.appendChild(instance.renderComments(state, instance))
+    container.appendChild(instance.renderFooter(state, instance))
+    return container
+  },
+  renderSomething(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    if (state.user.login) {
+      container.innerText = `Hello, ${state.user.login}`
+    }
+    return container
+  }
+}
+
 var gitment = new Gitment({
   id: "慕课网vue高仿饿了么", // 可选。默认为 location.href
   owner: "inRush",
@@ -420,8 +468,12 @@ var gitment = new Gitment({
     client_id: "3bca99b248e249ddc97a",
     client_secret: "01d0c0f19210b3eb67ce631776d4052e96fdbecd",
   },
+  theme: myTheme
 })
-gitment.render('container')
+gitment.render('comments-container');
+
+// gitment.render(document.body);
+
 </script>
   
 
