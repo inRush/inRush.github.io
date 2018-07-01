@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Archives: 2017 | inRush</title>
+  <title>Docker 命令行命令 | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="inRush">
-<meta property="og:url" content="http://inrush.me/archives/2017/index.html">
+  <meta name="description" content="1. 批量删除 none Image1$ docker rmi $(docker images | grep &amp;quot;none&amp;quot; | awk &amp;apos;&amp;#123;print $3&amp;#125;&amp;apos;) 2. 批量删除 Container1$ docker rm $(docker ps -aq) 3. 使用运行中的容器执行命令1$ docker exec 容器ID或Name 需">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 命令行命令">
+<meta property="og:url" content="http://inrush.me/2018/06/30/Docker-命令行命令/index.html">
 <meta property="og:site_name" content="inRush">
+<meta property="og:description" content="1. 批量删除 none Image1$ docker rmi $(docker images | grep &amp;quot;none&amp;quot; | awk &amp;apos;&amp;#123;print $3&amp;#125;&amp;apos;) 2. 批量删除 Container1$ docker rm $(docker ps -aq) 3. 使用运行中的容器执行命令1$ docker exec 容器ID或Name 需">
+<meta property="og:updated_time" content="2018-06-30T13:38:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="inRush">
+<meta name="twitter:title" content="Docker 命令行命令">
+<meta name="twitter:description" content="1. 批量删除 none Image1$ docker rmi $(docker images | grep &amp;quot;none&amp;quot; | awk &amp;apos;&amp;#123;print $3&amp;#125;&amp;apos;) 2. 批量删除 Container1$ docker rm $(docker ps -aq) 3. 使用运行中的容器执行命令1$ docker exec 容器ID或Name 需">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -172,56 +177,76 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Docker-命令行命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/" class="archive-article-date">
-  	<time datetime="2017-08-23T15:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/">PHP和Nginx组合,页面发送Ajax请求出现502</a>
+    <h1 class="article-title" itemprop="name">
+      Docker 命令行命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/06/30/Docker-命令行命令/" class="archive-article-date">
+  	<time datetime="2018-06-30T13:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-批量删除-none-Image"><a href="#1-批量删除-none-Image" class="headerlink" title="1. 批量删除 none Image"></a>1. 批量删除 none Image</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rmi $(docker images | grep &quot;none&quot; | awk &apos;&#123;print $3&#125;&apos;)</div></pre></td></tr></table></figure>
+<h5 id="2-批量删除-Container"><a href="#2-批量删除-Container" class="headerlink" title="2. 批量删除 Container"></a>2. 批量删除 Container</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rm $(docker ps -aq)</div></pre></td></tr></table></figure>
+<h5 id="3-使用运行中的容器执行命令"><a href="#3-使用运行中的容器执行命令" class="headerlink" title="3. 使用运行中的容器执行命令"></a>3. 使用运行中的容器执行命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker exec 容器ID或Name 需要执行的命令</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h6 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker exec 338c885416b1 /bin/bash # 运行 338c885416b1 容器的 /bin/bash</div></pre></td></tr></table></figure>
+<h5 id="4-显示容器的信息"><a href="#4-显示容器的信息" class="headerlink" title="4.显示容器的信息"></a>4.显示容器的信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker inspect 容器ID或Name</div></pre></td></tr></table></figure>
+<h6 id="example-1"><a href="#example-1" class="headerlink" title="example:"></a>example:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker inspect 338c885416b1 # 显示 338c885416b1 容器的基本信息</div></pre></td></tr></table></figure>
+<h5 id="5-查看容器运行的log输出-主要用于调试容器-查看程序输出"><a href="#5-查看容器运行的log输出-主要用于调试容器-查看程序输出" class="headerlink" title="5.查看容器运行的log输出 (主要用于调试容器,查看程序输出)"></a>5.查看容器运行的log输出 (主要用于调试容器,查看程序输出)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker logs 容器ID或Name</div></pre></td></tr></table></figure>
+<h6 id="example-2"><a href="#example-2" class="headerlink" title="example:"></a>example:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker logs 338c885416b1 # 显示 338c885416b1 容器 log 输出</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>暂时没有打赏的打算<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -234,188 +259,166 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/06/30/Docker-命令行命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/15/慕课网音乐APP-第一天/" class="archive-article-date">
-  	<time datetime="2017-06-15T15:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/15/慕课网音乐APP-第一天/">慕课网音乐APP (第一天)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网学习/" class="article-tag-list-link color1">慕课网学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/15/慕课网音乐APP/" class="archive-article-date">
-  	<time datetime="2017-06-15T10:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/15/慕课网音乐APP/">慕课网音乐APP</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网学习/" class="article-tag-list-link color1">慕课网学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/13/慕课网vue高仿饿了么/" class="archive-article-date">
-  	<time datetime="2017-06-13T10:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/13/慕课网vue高仿饿了么/">慕课网vue高仿饿了么</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网学习/" class="article-tag-list-link color1">慕课网学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2018/06/30/搭建一个私有的-Docker-Registry/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          搭建一个私有的 Docker Registry
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/06/30/Docker-资源限制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker 资源限制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
   
 
-    
+  
+
+  
+  <div id="comments-container" class="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<style>
+.comments{
+  background: #fff;
+  margin: 0 30px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease-in;
+  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+.mid-col.show .comments,
+.mid-col.show .gitment-comment-header,
+.mid-col.show .gitment-editor-body textarea{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.gitment-comment-header{
+  padding: 5px;
+}
+.gitment-editor-footer button,
+.gitment-comment-main,
+.gitment-editor-main{
+  border-radius: 3px;
+}
+</style>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+const myTheme = {
+  render(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    // container.className = 'gitment-container gitment-root-container'
+
+     // your custom component
+    container.appendChild(instance.renderSomething(state, instance))
+
+    container.appendChild(instance.renderHeader(state, instance))
+    container.appendChild(instance.renderEditor(state, instance))
+    container.appendChild(instance.renderComments(state, instance))
+    container.appendChild(instance.renderFooter(state, instance))
+    return container
+  },
+  renderSomething(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    if (state.user.login) {
+      container.innerText = `Hello, ${state.user.login}`
+    }
+    return container
+  }
+}
+
+var gitment = new Gitment({
+  id: "Docker-命令行命令", // 可选。默认为 location.href
+  owner: "inRush",
+  repo: "inRush.github.io",
+  oauth: {
+    client_id: "3bca99b248e249ddc97a",
+    client_secret: "01d0c0f19210b3eb67ce631776d4052e96fdbecd",
+  },
+  theme: myTheme
+})
+gitment.render('comments-container');
+
+// gitment.render(document.body);
+
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -438,8 +441,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

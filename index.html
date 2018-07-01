@@ -174,6 +174,616 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/01/Android-笔记/">Android 笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/01/Android-笔记/" class="archive-article-date">
+  	<time datetime="2018-07-01T01:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-OkHttp-Cookie-持久化"><a href="#1-OkHttp-Cookie-持久化" class="headerlink" title="1. OkHttp Cookie 持久化"></a>1. OkHttp Cookie 持久化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder()</div><div class="line">    .connectTimeout(<span class="number">60</span>, TimeUnit.SECONDS)</div><div class="line">    .cookieJar(<span class="keyword">new</span> CookieJar() &#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> HashMap&lt;String, List&lt;Cookie&gt;&gt; cookieStore = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="comment">//这里可以做cookie传递，保存等操作</span></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveFromResponse</span><span class="params">(HttpUrl url, List&lt;Cookie&gt; cookies)</span> </span>&#123;</div><div class="line">            cookieStore.put(url.host(), cookies);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> List&lt;Cookie&gt; <span class="title">loadForRequest</span><span class="params">(HttpUrl url)</span> </span>&#123;<span class="comment">//加载新的cookies</span></div><div class="line">            List&lt;Cookie&gt; cookies = cookieStore.get(url.host());</div><div class="line">            <span class="keyword">return</span> cookies != <span class="keyword">null</span> ? cookies : <span class="keyword">new</span> ArrayList&lt;Cookie&gt;();</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    .build();</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mobile/" class="article-tag-list-link color2">Mobile</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/01/Android-笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Android-Bug-记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/01/Android-Bug-记录/">Android Bug 记录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/01/Android-Bug-记录/" class="archive-article-date">
+  	<time datetime="2018-07-01T01:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-在OnResume生命周期函数中无限循环-卡死"><a href="#1-在OnResume生命周期函数中无限循环-卡死" class="headerlink" title="1.在OnResume生命周期函数中无限循环,卡死"></a>1.在OnResume生命周期函数中无限循环,卡死</h4><blockquote>
+<p><strong><em>遇到 bug 过程:</em></strong><br>在一次写一个Common库的时候,写测试代码,测试Android 6.0权限请求,因为本来设计为没有权限的话,是不能进入APP的,是会自动强制跳转到手机的权限设置页面的,所以我选择了在 OnResume 这个生命周期函数里面进行请求权限,如果拒绝的话,就给填转到手机的设置页面,但是运行以后发现无法跳转,而将权限请求的方法放到其他地方,拒绝了以后是可以跳转到设置页面的,这就奇怪了. 调试的时候,发现OnResume方法被无限调用.</p>
+<p><strong><em>bug 描述:</em></strong><br>在OnResume生命周期函数中跳转设置页面,OnResume方法被无限调用 </p>
+<p><strong><em>解决方法:</em></strong><br>将动态请求权限的方法放到OnStart这个生命周期方法里.</p>
+<p><strong><em>参考:</em></strong><br><a href="https://github.com/permissions-dispatcher/PermissionsDispatcher/issues/90" target="_blank" rel="external">Asking for permission in onResume might cause infinite loop</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bug</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mobile/" class="article-tag-list-link color2">Mobile</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/01/Android-Bug-记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Docker错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/01/Docker错误/">Docker错误</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/01/Docker错误/" class="archive-article-date">
+  	<time datetime="2018-07-01T01:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="未解决"><a href="#未解决" class="headerlink" title="未解决"></a>未解决</h3><h5 id="1-Cannot-connect-to-the-Docker-daemon-at-unix-var-run-docker-sock-Is-the-docker-daemon-running"><a href="#1-Cannot-connect-to-the-Docker-daemon-at-unix-var-run-docker-sock-Is-the-docker-daemon-running" class="headerlink" title="1. Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"></a>1. Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</h5><blockquote>
+<p><strong>产生原因</strong>: 为了给服务器装 Google 的 BBR,把内核给升级了,然后升级完,重启主机以后,Docker 就无法启动了.\<br><strong>当时采取措施</strong>: 升级内核之前,设置了快照,所以回滚了磁盘.\<br><strong>猜测</strong>: 内核升级,导致Docker无法运行</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/01/Docker错误/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-搭建一个私有的-Docker-Registry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/搭建一个私有的-Docker-Registry/">搭建一个私有的 Docker Registry</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/30/搭建一个私有的-Docker-Registry/" class="archive-article-date">
+  	<time datetime="2018-06-30T13:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>提供一个内部访问的DockerHub</em></p>
+<p><em>在一个有docker的主机上创建并运行一个registry的容器,该容器相当于一个web服务器,<strong>但是没有web界面</strong>,该主机你必须能访问. 注意: 该主机不是你当前使用的主机,是另外一台主机</em></p>
+</blockquote>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><h5 id="1-在主机上-不是本地自己的机器-是用来存储registry的机器"><a href="#1-在主机上-不是本地自己的机器-是用来存储registry的机器" class="headerlink" title="1. 在主机上,不是本地自己的机器,是用来存储registry的机器"></a>1. 在主机上,不是本地自己的机器,是用来存储registry的机器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> docker run -d -p 5000:5000 --restart always --name registry registry:2</span></div></pre></td></tr></table></figure>
+<h5 id="2-在你的机器上"><a href="#2-在你的机器上" class="headerlink" title="2. 在你的机器上"></a>2. 在你的机器上</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> docker build -t 10.75.44.222:5000/hello-world // 这里的IP是运行了registry的linux主机的IP,端口就是registry运行绑定的端口,</span></div><div class="line">后面的名字就是你自定义镜像的名字,</div><div class="line"><span class="meta">$</span><span class="bash"> docker push 10.75.44.222:5000/hello-world</span></div></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/30/搭建一个私有的-Docker-Registry/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Docker-命令行命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/Docker-命令行命令/">Docker 命令行命令</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/30/Docker-命令行命令/" class="archive-article-date">
+  	<time datetime="2018-06-30T13:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-批量删除-none-Image"><a href="#1-批量删除-none-Image" class="headerlink" title="1. 批量删除 none Image"></a>1. 批量删除 none Image</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rmi $(docker images | grep &quot;none&quot; | awk &apos;&#123;print $3&#125;&apos;)</div></pre></td></tr></table></figure>
+<h5 id="2-批量删除-Container"><a href="#2-批量删除-Container" class="headerlink" title="2. 批量删除 Container"></a>2. 批量删除 Container</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rm $(docker ps -aq)</div></pre></td></tr></table></figure>
+<h5 id="3-使用运行中的容器执行命令"><a href="#3-使用运行中的容器执行命令" class="headerlink" title="3. 使用运行中的容器执行命令"></a>3. 使用运行中的容器执行命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker exec 容器ID或Name 需要执行的命令</div></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/30/Docker-命令行命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Docker-资源限制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/Docker-资源限制/">Docker 资源限制</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/30/Docker-资源限制/" class="archive-article-date">
+  	<time datetime="2018-06-30T13:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
+<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span> --memory 200M 15c336f15d45 # total memory = 400M</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/30/Docker-资源限制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Docker练习示例-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/Docker练习示例-一/">Docker练习示例(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/30/Docker练习示例-一/" class="archive-article-date">
+  	<time datetime="2018-06-30T13:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>前提概要:</strong><br>以预先安装好Python2.7环境的Image为BaseImage,创建一个运行Flask Web的Image</p>
+</blockquote>
+<h5 id="1-编写Python文件"><a href="#1-编写Python文件" class="headerlink" title="1. 编写Python文件"></a>1. 编写Python文件</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"hello docker"</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>;</div><div class="line">    app.run();</div></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/30/Docker练习示例-一/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Docker-基础学习之Dockerfile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/Docker-基础学习之Dockerfile/">Docker 基础学习之Dockerfile</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/30/Docker-基础学习之Dockerfile/" class="archive-article-date">
+  	<time datetime="2018-06-30T12:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
+<li><p><strong>FROM</strong>: 指定 Base image</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> centos</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>LABEL</strong>: 类似于注释</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LABEL</span> version = "1.0"</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>RUN</strong>: 执行命令并创建新的Image Layer</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span> yum update &amp;&amp; yum install -y vim \</div><div class="line">python-dev    #反斜杠表示换行</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>WORKDIR</strong>: 切换镜像内的工作目录 (类似于cd命令,不要用RUN cd)</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">WORKDIR</span> /root  #最好使用绝对目录,避免一些不必要的麻烦</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ADD</strong>: 添加文件到镜像中去 (会进行解压)</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD</span> hello.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>COPY</strong>: 添加文件到镜像中去 (不会进行解压)</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">COPY</span> hello.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ENV</strong>: 设置环境变量</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></div><div class="line"><span class="keyword">RUN</span> apt-get install -y mysql-server="$&#123;MYSQL_VERSION&#125;" </div><div class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/30/Docker-基础学习之Dockerfile/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-PHP和Nginx组合-页面发送Ajax请求出现502" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,54 +855,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JavaScript中call-apply-bind的用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/JavaScript中call-apply-bind的用法/">JavaScript中call,apply,bind的用法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/JavaScript中call-apply-bind的用法/" class="archive-article-date">
-  	<time datetime="2017-08-10T06:52:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>### </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/JavaScript中call-apply-bind的用法/">展开全文 >></a>
         </p>
       
 
@@ -388,172 +950,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-慕课网音乐APP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/15/慕课网音乐APP/">慕课网音乐APP</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/15/慕课网音乐APP/" class="archive-article-date">
-  	<time datetime="2017-06-15T10:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>  最近,慕课网又出了一门新的vue课程,是做一个音乐的webapp,看了那个课程的简介以后,看着那效果,真的很像原生的了,效果很好,不愧是滴滴D8工程师啊,那个视频是一个滴滴公司的一个D8工程师做的,之前看了他的饿了么视频以后,觉得他真的很赞,之前的饿了么的那个课程就很多人买了,现在的这门课才出没有多久,就有三百多个人买了,可见他的课有多吸引人😍,好了,废话不多说,今天就开始学他的这门课程了(ps:这个课程真的很贵,399啊☹️)</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网学习/" class="article-tag-list-link color1">慕课网学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/15/慕课网音乐APP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-慕课网vue高仿饿了么" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/13/慕课网vue高仿饿了么/">慕课网vue高仿饿了么</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/13/慕课网vue高仿饿了么/" class="archive-article-date">
-  	<time datetime="2017-06-13T10:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>  这门课在慕课网上算是比较好的一门vue课程了,个人觉得啊,这个视频是收费的,198对于一个学生来说还是有点小贵的,课程讲的都是vue比较浅的一些内容,适合刚入门vue的人.这门课是用vue1.0编写的,在我学习这门课程的时候vue已经是2.0的了,我呢,通常是比较喜欢使用比较新的版本的,所以我就使用了vue2.0的,就是因为这个决定,导致了后面一系列的坑,后来看了vue1.0和2.0的差异的时候,发现这两个版本竟然有很多不兼容的地方,没办法,只能一步一个坑,慢慢踩过去了.<br><br>&emsp;&emsp;后来发现,视频的最后竟然有升级的教程的,唉,不过能通过自己查阅文档,对其中不兼容的地方进行修改,还是很有成就感的,虽然发现有升级视频了,但是我还是喜欢自己查阅文档,自己摸索进行升级,这样对每次地方都能有一个深刻的印象.<br>  在这门课中,主要能学到一下的vue知识吧</p>
-<ul>
-<li><strong><em>vue的模块化,组件化</em></strong></li>
-<li><strong><em>vue的基本架构设计</em></strong></li>
-<li><strong><em>了解webApp的基本开发流程,以及一些开发的技巧</em></strong></li>
-<li><strong><em>webpack 的一些基本的知识</em></strong></li>
-</ul>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/慕课网学习/" class="article-tag-list-link color1">慕课网学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/13/慕课网vue高仿饿了么/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -564,7 +964,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 inRush
+    		&copy; 2018 inRush
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -644,6 +1044,22 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">skill</a>
               </li>
              
               <li class="article-tag-list-item">
