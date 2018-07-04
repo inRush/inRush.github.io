@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Docker 资源限制 | inRush</title>
+  <title>Java 调用 Rust | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
-<meta name="keywords" content="docker">
+  <meta name="description" content="在前段时间，编写一个 Android 的 Common 库，需要添加一个关于进制转换，原码反码转换的工具，想着用Java实现肯定很慢，于是就想着可不可以用C++写，因为很多高效率的库都是用C++写的，Java调用C++使用JNI来实现的，JNI能使得Java虚拟机中的Java程序可以调用本地应用或库。也可以被其他程序调用。但是之前接触过一段时间的Rust，所以想着可不可以用Rust的写，毕竟Ru">
+<meta name="keywords" content="skill,rust">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker 资源限制">
-<meta property="og:url" content="http://inrush.me/2018/06/30/Docker-资源限制/index.html">
+<meta property="og:title" content="Java 调用 Rust">
+<meta property="og:url" content="http://inrush.me/2018/07/04/Java-调用-Rust/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
-<meta property="og:updated_time" content="2018-06-30T13:29:12.000Z">
+<meta property="og:description" content="在前段时间，编写一个 Android 的 Common 库，需要添加一个关于进制转换，原码反码转换的工具，想着用Java实现肯定很慢，于是就想着可不可以用C++写，因为很多高效率的库都是用C++写的，Java调用C++使用JNI来实现的，JNI能使得Java虚拟机中的Java程序可以调用本地应用或库。也可以被其他程序调用。但是之前接触过一段时间的Rust，所以想着可不可以用Rust的写，毕竟Ru">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB0f63cde6ee183aa9688ee13cc6a6cd47?method=download&shareKey=aa388ee20dd2445f332e4522bb4f81bd">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB5912afb4276d790b8f7ed61704cdb780?method=download&shareKey=d7129a1d299f8dc09fac4ff54759a313">
+<meta property="og:updated_time" content="2018-07-04T07:59:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker 资源限制">
-<meta name="twitter:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
+<meta name="twitter:title" content="Java 调用 Rust">
+<meta name="twitter:description" content="在前段时间，编写一个 Android 的 Common 库，需要添加一个关于进制转换，原码反码转换的工具，想着用Java实现肯定很慢，于是就想着可不可以用C++写，因为很多高效率的库都是用C++写的，Java调用C++使用JNI来实现的，JNI能使得Java虚拟机中的Java程序可以调用本地应用或库。也可以被其他程序调用。但是之前接触过一段时间的Rust，所以想着可不可以用Rust的写，毕竟Ru">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB0f63cde6ee183aa9688ee13cc6a6cd47?method=download&shareKey=aa388ee20dd2445f332e4522bb4f81bd">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -177,35 +180,107 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker-资源限制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-调用-Rust" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Docker 资源限制
+      Java 调用 Rust
     </h1>
   
 
         
-        <a href="/2018/06/30/Docker-资源限制/" class="archive-article-date">
-  	<time datetime="2018-06-30T13:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+        <a href="/2018/07/04/Java-调用-Rust/" class="archive-article-date">
+  	<time datetime="2018-07-04T07:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br><a id="more"></a></p>
+        <blockquote>
+<p>在前段时间，编写一个 Android 的 Common 库，需要添加一个关于进制转换，原码反码转换的工具，想着用Java实现肯定很慢，于是就想着可不可以用C++写，因为很多高效率的库都是用C++写的，Java调用C++使用JNI来实现的，JNI能使得Java虚拟机中的Java程序可以调用本地应用或库。也可以被其他程序调用。<br>但是之前接触过一段时间的Rust，所以想着可不可以用Rust的写，毕竟Rust性能号称和C++只有很小的差别了，而且解决了C++的很多问题。然后我就各种查资料，各种尝试，踩了很多的坑以后，最终成功了，但是有一点不好的是，编译出来的so库是在是太大了，我只写了一个helloworld的方法就有5M多，我看源码，其中需要调用C，我估计是因为Rust不能直接服务于JNI，而是要间接通过C，所以导致了编译出来的so库会很大。</p>
 </blockquote>
-<h3 id="2-限定CPU"><a href="#2-限定CPU" class="headerlink" title="2. 限定CPU"></a>2. 限定CPU</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-c, --cpu-shares int  [CPU shares (relative weight)]</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Java-调用-Rust"><a href="#Java-调用-Rust" class="headerlink" title="Java 调用 Rust"></a>Java 调用 Rust</h3><h5 id="1-首先建一个Java类"><a href="#1-首先建一个Java类" class="headerlink" title="1. 首先建一个Java类"></a>1. 首先建一个Java类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">    <span class="comment">// This declares that the static `hello` method will be provided</span></div><div class="line">    <span class="comment">// a native library.</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">(String input)</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        <span class="comment">// This actually loads the shared object that we'll be creating.</span></div><div class="line">        <span class="comment">// The actual location of the .so or .dll may differ based on your</span></div><div class="line">        <span class="comment">// platform.</span></div><div class="line">        System.load(<span class="string">"path/to/your/lib.so"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// The rest is just regular ol' java!</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String output = HelloWorld.hello(<span class="string">"josh"</span>);</div><div class="line">        System.out.println(output);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-用-cargo-命令建一个Project"><a href="#2-用-cargo-命令建一个Project" class="headerlink" title="2. 用 cargo 命令建一个Project"></a>2. 用 cargo 命令建一个Project</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cargo new mylib</div><div class="line">$ cd mylib</div></pre></td></tr></table></figure>
+<h5 id="3-修改-src-目录的文件为-lib-rs"><a href="#3-修改-src-目录的文件为-lib-rs" class="headerlink" title="3. 修改 src 目录的文件为 lib.rs"></a>3. 修改 src 目录的文件为 lib.rs</h5><h5 id="4-添加以下内容到-lib-rs"><a href="#4-添加以下内容到-lib-rs" class="headerlink" title="4. 添加以下内容到 lib.rs"></a>4. 添加以下内容到 lib.rs</h5><figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">crate</span> jni;</div><div class="line"></div><div class="line"><span class="comment">// This is the interface to the JVM that we'll call the majority of our</span></div><div class="line"><span class="comment">// methods on.</span></div><div class="line"><span class="keyword">use</span> jni::JNIEnv;</div><div class="line"></div><div class="line"><span class="comment">// These objects are what you should use as arguments to your native</span></div><div class="line"><span class="comment">// function. They carry extra lifetime information to prevent them escaping</span></div><div class="line"><span class="comment">// this context and getting used after being GC'd.</span></div><div class="line"><span class="keyword">use</span> jni::objects::&#123;JClass, JString&#125;;</div><div class="line"></div><div class="line"><span class="comment">// This is just a pointer. We'll be returning it from our function. We</span></div><div class="line"><span class="comment">// can't return one of the objects with lifetime information because the</span></div><div class="line"><span class="comment">// lifetime checker won't let us.</span></div><div class="line"><span class="keyword">use</span> jni::sys::jstring;</div><div class="line"></div><div class="line"><span class="comment">// This keeps rust from "mangling" the name and making it unique for this</span></div><div class="line"><span class="comment">// crate.</span></div><div class="line"><span class="meta">#[no_mangle]</span></div><div class="line"><span class="comment">// This turns off linter warnings because the name doesn't conform to</span></div><div class="line"><span class="comment">// conventions.</span></div><div class="line"><span class="meta">#[allow(non_snake_case)]</span></div><div class="line"><span class="keyword">pub</span> <span class="keyword">extern</span> <span class="string">"system"</span> <span class="function"><span class="keyword">fn</span> <span class="title">Java_HelloWorld_hello</span></span>(env: JNIEnv,</div><div class="line"><span class="comment">// This is the class that owns our static method. It's not going to be used,</span></div><div class="line"><span class="comment">// but still must be present to match the expected signature of a static</span></div><div class="line"><span class="comment">// native method.</span></div><div class="line">                                             class: JClass,</div><div class="line">                                             input: JString)</div><div class="line">                                             -&gt; jstring &#123;</div><div class="line">    <span class="comment">// First, we have to get the string out of java. Check out the `strings`</span></div><div class="line">    <span class="comment">// module for more info on how this works.</span></div><div class="line">    <span class="keyword">let</span> input: <span class="built_in">String</span> =</div><div class="line">        env.get_string(input).expect(<span class="string">"Couldn't get java string!"</span>).into();</div><div class="line"></div><div class="line">    <span class="comment">// Then we have to create a new java string to return. Again, more info</span></div><div class="line">    <span class="comment">// in the `strings` module.</span></div><div class="line">    <span class="keyword">let</span> output = env.new_string(<span class="built_in">format!</span>(<span class="string">"Hello, &#123;&#125;!"</span>, input))</div><div class="line">        .expect(<span class="string">"Couldn't create java string!"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Finally, extract the raw pointer to return.</span></div><div class="line">    output.into_inner()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>–cpu-shares 指定的CPU是占比多少 \<br>example: \<br>A –cpu-shares 5  # 设置占比5 \<br>B –cpu-shares 10  # 设置占比10 \<br>A cpu + B cpu = 100%  # A所占的CPU加上B所占的CPU等于全部CPU\<br>B cpu = A cpu * 2 ===&gt; 10 / 5 = 2 也就是B占的CPU总是A的两倍</p>
+<p>需要注意的是里面函数的名称格式为 <strong>Java<em>完整类名(包括包名)</em>方法名</strong></p>
 </blockquote>
+<h5 id="5-修改-Cargo-toml-文件"><a href="#5-修改-Cargo-toml-文件" class="headerlink" title="5. 修改 Cargo.toml 文件"></a>5. 修改 Cargo.toml 文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[dependencies]</div><div class="line">jni = &#123; git = &quot;https://github.com/prevoty/jni-rs&quot; &#125;</div><div class="line">...</div><div class="line"></div><div class="line">[lib]</div><div class="line">crate_type = [&quot;dylib&quot;]</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="6-build-project"><a href="#6-build-project" class="headerlink" title="6. build project"></a>6. build project</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cargo build</div></pre></td></tr></table></figure>
+<p>完成之后，在target的debug文件夹里面会生成一个库文件,对应下面的系统生成不同的文件</p>
+<ol>
+<li>Mac os</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">libmylib.dylib</div></pre></td></tr></table></figure>
+<ol>
+<li>Windows</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">libmylib.dll</div></pre></td></tr></table></figure>
+<ol>
+<li>Linux</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">libmylib.so</div></pre></td></tr></table></figure>
+<h5 id="7-将这个生成的文件的路径复制到-Java-文件里的这个位置："><a href="#7-将这个生成的文件的路径复制到-Java-文件里的这个位置：" class="headerlink" title="7. 将这个生成的文件的路径复制到 Java 文件里的这个位置："></a>7. 将这个生成的文件的路径复制到 Java 文件里的这个位置：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.load(<span class="string">"path/to/your/lib.so"</span>);</div></pre></td></tr></table></figure>
+<h5 id="8-编译运行-Java-文件"><a href="#8-编译运行-Java-文件" class="headerlink" title="8. 编译运行 Java 文件"></a>8. 编译运行 Java 文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ javac hello.java</div><div class="line">$ java hello</div></pre></td></tr></table></figure>
+<h5 id="结果如下："><a href="#结果如下：" class="headerlink" title="结果如下："></a>结果如下：</h5><p><img src="https://note.youdao.com/yws/api/personal/file/WEB0f63cde6ee183aa9688ee13cc6a6cd47?method=download&amp;shareKey=aa388ee20dd2445f332e4522bb4f81bd" alt="image"></p>
+<blockquote>
+<p>其中遇到了一些坑，比如原文中是用这个加载库文件的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.loadLibrary(&quot;mylib&quot;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>然后运行的时候就出现这个错误了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Exception in thread &quot;main&quot; java.lang.UnsatisfiedLinkError: Directory separator should not appear in library name: /Users/inrush/WorkSpace/Rust/mylib/test/libmylib</div><div class="line">        at java.lang.Runtime.loadLibrary0(Runtime.java:867)</div><div class="line">        at java.lang.System.loadLibrary(System.java:1122)</div><div class="line">        at HelloWorld.&lt;clinit&gt;(HelloWorld.java:10)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>接着就是各种Google，找到了解决的方法，就是将上面 loadLibrary 改成了 load，然后里面的改成库文件的绝对路径就好了</p>
+</blockquote>
+<h3 id="Android-调用-Rust"><a href="#Android-调用-Rust" class="headerlink" title="Android 调用 Rust"></a>Android 调用 Rust</h3><blockquote>
+<p>由于对 Android 编写原生库不熟悉，以前没有接触过，所以在一开始的时候，我以为 Android 是用 Java 写的，所以可以直接用 JNI 编译生成的库运行的，然而运行以后一直报错，然后又开始了一遍又一遍的 Google，进行各种的猜测，终于，我发现了我问题所在，是因为电脑上编译出来的库是不能用于 Android 上的，因为 CPU 的平台不一样， 需要适配各个不同的 CPU 架构，比如 arm64，x86, armeabi ,然后我 Google JNI 怎么编译成这些平台, 发现这是个愚蠢的做法，因为 Android 有专门编译的工具, 叫NDK，真想抽自己两巴掌，真蠢。</p>
+</blockquote>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><h5 id="1-在-Android-Studio-中，添加以下的工具："><a href="#1-在-Android-Studio-中，添加以下的工具：" class="headerlink" title="1. 在 Android Studio 中，添加以下的工具："></a>1. 在 Android Studio 中，添加以下的工具：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* Android SDK Tools</div><div class="line">* NDK</div><div class="line">* CMake</div><div class="line">* LLDB</div></pre></td></tr></table></figure>
+<p>步骤：</p>
+<ol>
+<li>Android Studio &gt; Preferences &gt; Appearance &amp; Behaviour &gt; System Settings &gt; Android SDK &gt; SDK Tools </li>
+<li>在列表中找到上面的工具，勾选上，点击 Apply</li>
+</ol>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB5912afb4276d790b8f7ed61704cdb780?method=download&amp;shareKey=d7129a1d299f8dc09fac4ff54759a313" alt="image"></p>
+<h5 id="2-设置环境变量"><a href="#2-设置环境变量" class="headerlink" title="2. 设置环境变量"></a>2. 设置环境变量</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export ANDROID_HOME=/Users/$USER/Library/Android/sdk</div><div class="line">export NDK_HOME=$ANDROID_HOME/ndk-bundle</div></pre></td></tr></table></figure>
+<h5 id="3-生成-NDK-文件，我是在工程目录下新建了一个-NDK-目录的，其实建在哪里都可以，不过要找的到"><a href="#3-生成-NDK-文件，我是在工程目录下新建了一个-NDK-目录的，其实建在哪里都可以，不过要找的到" class="headerlink" title="3. 生成 NDK 文件，我是在工程目录下新建了一个 NDK 目录的，其实建在哪里都可以，不过要找的到"></a>3. 生成 NDK 文件，我是在工程目录下新建了一个 NDK 目录的，其实建在哪里都可以，不过要找的到</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$&#123;NDK_HOME&#125;/build/tools/make_standalone_toolchain.py --api 26 --arch arm64 --install-dir NDK/arm64</div><div class="line">$&#123;NDK_HOME&#125;/build/tools/make_standalone_toolchain.py --api 26 --arch arm --install-dir NDK/arm</div><div class="line">$&#123;NDK_HOME&#125;/build/tools/make_standalone_toolchain.py --api 26 --arch x86 --install-dir NDK/x86</div></pre></td></tr></table></figure>
+<p>目录示意：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">project</div><div class="line">|—— NDK/</div><div class="line">|—— src/</div><div class="line">|—— Cargo.lock</div><div class="line">|—— Cargo.toml</div></pre></td></tr></table></figure>
+<p>可以将上图的 NDK 目录放到任意的地方，下面我用 <strong>path/to/NDK</strong> 表示该目录</p>
+<h5 id="4-添加或修改cargo配置文件"><a href="#4-添加或修改cargo配置文件" class="headerlink" title="4. 添加或修改cargo配置文件"></a>4. 添加或修改cargo配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.cargo/config</div></pre></td></tr></table></figure>
+<p>添加以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[target.aarch64-linux-android]</div><div class="line">ar = "path/to/NDK/arm64/bin/aarch64-linux-android-ar"</div><div class="line">linker = ""path/to/NDK/arm64/bin/aarch64-linux-android-clang"</div><div class="line"></div><div class="line">[target.armv7-linux-androideabi]</div><div class="line">ar = ""path/to/NDK/arm/bin/arm-linux-androideabi-ar"</div><div class="line">linker = ""path/to/NDK/arm/bin/arm-linux-androideabi-clang"</div><div class="line"></div><div class="line">[target.i686-linux-android]</div><div class="line">ar = ""path/to/NDK/x86/bin/i686-linux-android-ar"</div><div class="line">linker = ""path/to/NDK/x86/bin/i686-linux-android-clang"</div></pre></td></tr></table></figure>
+<h5 id="5-添加交叉编译支持平台"><a href="#5-添加交叉编译支持平台" class="headerlink" title="5. 添加交叉编译支持平台"></a>5. 添加交叉编译支持平台</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android</div></pre></td></tr></table></figure>
+<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><h5 id="1-其实前面的四步基本和上面的是一样的，不过在第四步的文件里，要改成这个样子："><a href="#1-其实前面的四步基本和上面的是一样的，不过在第四步的文件里，要改成这个样子：" class="headerlink" title="1. 其实前面的四步基本和上面的是一样的，不过在第四步的文件里，要改成这个样子："></a>1. 其实前面的四步基本和上面的是一样的，不过在第四步的文件里，要改成这个样子：</h5><figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">crate</span> jni;</div><div class="line"></div><div class="line"><span class="comment">// This is the interface to the JVM that we'll call the majority of our</span></div><div class="line"><span class="comment">// methods on.</span></div><div class="line"><span class="keyword">use</span> jni::JNIEnv;</div><div class="line"></div><div class="line"><span class="comment">// These objects are what you should use as arguments to your native</span></div><div class="line"><span class="comment">// function. They carry extra lifetime information to prevent them escaping</span></div><div class="line"><span class="comment">// this context and getting used after being GC'd.</span></div><div class="line"><span class="keyword">use</span> jni::objects::&#123;JClass, JString&#125;;</div><div class="line"></div><div class="line"><span class="comment">// This is just a pointer. We'll be returning it from our function. We</span></div><div class="line"><span class="comment">// can't return one of the objects with lifetime information because the</span></div><div class="line"><span class="comment">// lifetime checker won't let us.</span></div><div class="line"><span class="keyword">use</span> jni::sys::jstring;</div><div class="line"></div><div class="line"><span class="comment">// This keeps rust from "mangling" the name and making it unique for this</span></div><div class="line"><span class="comment">// crate.</span></div><div class="line"><span class="meta">#[no_mangle]</span></div><div class="line"><span class="meta">#[cfg(target_os=<span class="meta-string">"android"</span>)]</span></div><div class="line"><span class="comment">// This turns off linter warnings because the name doesn't conform to</span></div><div class="line"><span class="comment">// conventions.</span></div><div class="line"><span class="meta">#[allow(non_snake_case)]</span></div><div class="line"><span class="keyword">pub</span> <span class="keyword">extern</span> <span class="string">"system"</span> <span class="function"><span class="keyword">fn</span> <span class="title">Java_me_inrush_common_math_HelloWorld_hello</span></span>(</div><div class="line">    env: JNIEnv,</div><div class="line">    <span class="comment">// This is the class that owns our static method. It's not going to be used,</span></div><div class="line">    <span class="comment">// but still must be present to match the expected signature of a static</span></div><div class="line">    <span class="comment">// native method.</span></div><div class="line">    class: JClass,</div><div class="line">    input: JString,</div><div class="line">) -&gt; jstring &#123;</div><div class="line">    <span class="comment">// First, we have to get the string out of java. Check out the `strings`</span></div><div class="line">    <span class="comment">// module for more info on how this works.</span></div><div class="line">    <span class="keyword">let</span> input: <span class="built_in">String</span> = env</div><div class="line">        .get_string(input)</div><div class="line">        .expect(<span class="string">"Couldn't get java string!"</span>)</div><div class="line">        .into();</div><div class="line"></div><div class="line">    <span class="comment">// Then we have to create a new java string to return. Again, more info</span></div><div class="line">    <span class="comment">// in the `strings` module.</span></div><div class="line">    <span class="keyword">let</span> output = env</div><div class="line">        .new_string(<span class="built_in">format!</span>(<span class="string">"Hello, &#123;&#125;!"</span>, input))</div><div class="line">        .expect(<span class="string">"Couldn't create java string!"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Finally, extract the raw pointer to return.</span></div><div class="line">    output.into_inner()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实也没有多大区别，就是添加了下面的这一行而已：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#[cfg(target_os=&quot;android&quot;)]</div></pre></td></tr></table></figure>
+<h5 id="2-修改-Cargo-toml"><a href="#2-修改-Cargo-toml" class="headerlink" title="2. 修改 Cargo.toml"></a>2. 修改 Cargo.toml</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">[target.&apos;cfg(target_os=&quot;android&quot;)&apos;.dependencies]</div><div class="line">jni = &#123; version = &quot;0.5&quot;, default-features = false &#125;</div><div class="line">...</div><div class="line"></div><div class="line">[lib]</div><div class="line">crate_type = [&quot;dylib&quot;]</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="3-编译文件"><a href="#3-编译文件" class="headerlink" title="3. 编译文件"></a>3. 编译文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cargo build --target aarch64-linux-android</div><div class="line">cargo build --target armv7-linux-androideabi</div><div class="line">cargo build --target i686-linux-android</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在 target 文件夹下会生成三个对应的文件夹<br>如果像生成 release 版本可以这样编译：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cargo build --target aarch64-linux-android --release</div><div class="line">cargo build --target armv7-linux-androideabi --release</div><div class="line">cargo build --target i686-linux-android --release</div></pre></td></tr></table></figure>
+<h5 id="4-接下来的步骤和上面-Java-调用-Rust-步骤一样的，不过有一处地方需要修改，修改完将文件夹对应的-so-文件放到对应的文件夹内即可（一定是生成-so-文件，无论是-Macos-还是-Windows），下面是文件夹对应关系："><a href="#4-接下来的步骤和上面-Java-调用-Rust-步骤一样的，不过有一处地方需要修改，修改完将文件夹对应的-so-文件放到对应的文件夹内即可（一定是生成-so-文件，无论是-Macos-还是-Windows），下面是文件夹对应关系：" class="headerlink" title="4. 接下来的步骤和上面 Java 调用 Rust 步骤一样的，不过有一处地方需要修改，修改完将文件夹对应的 so 文件放到对应的文件夹内即可（一定是生成 so 文件，无论是 Macos 还是 Windows），下面是文件夹对应关系："></a>4. 接下来的步骤和上面 Java 调用 Rust 步骤一样的，不过有一处地方需要修改，修改完将文件夹对应的 so 文件放到对应的文件夹内即可（一定是生成 so 文件，无论是 Macos 还是 Windows），下面是文件夹对应关系：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arm64 -&gt; aarch64-linux-android</div><div class="line">armeabi -&gt; armv7-linux-androideabi</div><div class="line">x86 -&gt; i686-linux-android</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在 Android Studio 选择目录模式为 Project，然后在 main 文件夹内，与 java 和 res 同级目录下，新建一个叫 jniLibs 的文件夹，新建三个上面的文件夹，分别是：arm64，armeabi，x86，然后将对应的库文件放入其中。</p>
+</blockquote>
+<p>需要修改的文件：java 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.load() =&gt; System.loadLibrary();</div></pre></td></tr></table></figure>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><blockquote>
+<p>loadLibrary() 这个方法，参数是 lib 的名称，比如生成的库文件名为 libmylib.so ,那么就填 mylib，如果是 libmath.so 就填 math，其实就是去掉 lib 前缀，还有 .so 的后缀 </p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://docs.rs/jni/0.10.1/jni/" target="_blank" rel="external">jni-rs doc</a></li>
+<li><a href="https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-21-rust-on-android.html" target="_blank" rel="external">Building and Deploying a Rust library on Android</a></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>经过了这次的学习，对于编写 Java 的 native 库，算是有了一个基础的认识吧，毕竟能成功编写一个基于 Rust 的 native 库了，虽然现在只是处于 hello world 的状态，但是还是会有那么一点成就感的。其中踩坑的经历也给我增加了不少的经验，rust 语言也有了那么一丢丢算基础的基础吧，哈哈哈。</strong><br><strong>在最后，我还是想吐槽下，虽然现在 rust 的性能和 c++ 有的一拼，但是！编译出来的文件也忒大了吧，我就写了一个 hello world，在 debug 模式下编译出来的 so 文件，竟然后 10M ,在 release 模式下，也要 5M，这也太大了，放到 APP 里，比 APP 本身还要大，唉。或许，可能，是我没有优化，所以导致了那么大，也有可能是 rust 仍旧需要依赖C，才能被 Java 调用，所以这么大。不过无论怎么样，我觉得这次的尝试还是很值得的。</strong></p>
 
       
 
@@ -240,7 +315,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rust</a>
         		</li>
       		
 		</ul>
@@ -252,7 +331,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        			<a href="/categories/Underlying/" class="article-tag-list-link color1">Underlying</a>
         		</li>
       		
 		</ul>
@@ -307,7 +386,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/06/30/Docker-资源限制/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/07/04/Java-调用-Rust/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +400,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/30/Docker-命令行命令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Docker 命令行命令
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/30/Docker练习示例-一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker练习示例(一)</div>
+    <a href="/2018/07/04/切换Cargo的源/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">切换Cargo的源</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +470,7 @@ const myTheme = {
 }
 
 var gitment = new Gitment({
-  id: "Docker-资源限制", // 可选。默认为 location.href
+  id: "Java-调用-Rust", // 可选。默认为 location.href
   owner: "inRush",
   repo: "inRush.github.io",
   oauth: {

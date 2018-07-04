@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Docker 资源限制 | inRush</title>
+  <title>Tag: rust | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
-<meta name="keywords" content="docker">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Docker 资源限制">
-<meta property="og:url" content="http://inrush.me/2018/06/30/Docker-资源限制/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="inRush">
+<meta property="og:url" content="http://inrush.me/tags/rust/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
-<meta property="og:updated_time" content="2018-06-30T13:29:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker 资源限制">
-<meta name="twitter:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
+<meta name="twitter:title" content="inRush">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -177,248 +172,155 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker-资源限制" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Docker 资源限制
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/04/Java-调用-Rust/" class="archive-article-date">
+  	<time datetime="2018-07-04T07:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/04/Java-调用-Rust/">Java 调用 Rust</a>
     </h1>
   
 
-        
-        <a href="/2018/06/30/Docker-资源限制/" class="archive-article-date">
-  	<time datetime="2018-06-30T13:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br><a id="more"></a></p>
-</blockquote>
-<h3 id="2-限定CPU"><a href="#2-限定CPU" class="headerlink" title="2. 限定CPU"></a>2. 限定CPU</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-c, --cpu-shares int  [CPU shares (relative weight)]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>–cpu-shares 指定的CPU是占比多少 \<br>example: \<br>A –cpu-shares 5  # 设置占比5 \<br>B –cpu-shares 10  # 设置占比10 \<br>A cpu + B cpu = 100%  # A所占的CPU加上B所占的CPU等于全部CPU\<br>B cpu = A cpu * 2 ===&gt; 10 / 5 = 2 也就是B占的CPU总是A的两倍</p>
-</blockquote>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>暂时没有打赏的打算<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">skill</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rust</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        			<a href="/categories/Underlying/" class="article-tag-list-link color1">Underlying</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/06/30/Docker-资源限制/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/04/切换Cargo的源/" class="archive-article-date">
+  	<time datetime="2018-07-04T07:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2018/06/30/Docker-命令行命令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Docker 命令行命令
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/06/30/Docker练习示例-一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker练习示例(一)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/04/切换Cargo的源/">切换Cargo的源</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rust</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cargo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/04/Rust-基础学习-一/" class="archive-article-date">
+  	<time datetime="2018-07-04T07:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/04/Rust-基础学习-一/">Rust 基础学习(一)</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rust</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
-  <div id="comments-container" class="comments"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<style>
-.comments{
-  background: #fff;
-  margin: 0 30px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: all 0.2s ease-in;
-  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-.mid-col.show .comments,
-.mid-col.show .gitment-comment-header,
-.mid-col.show .gitment-editor-body textarea{
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.gitment-comment-header{
-  padding: 5px;
-}
-.gitment-editor-footer button,
-.gitment-comment-main,
-.gitment-editor-main{
-  border-radius: 3px;
-}
-</style>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-const myTheme = {
-  render(state, instance) {
-    const container = document.createElement('div')
-    container.lang = "en-US"
-    // container.className = 'gitment-container gitment-root-container'
-
-     // your custom component
-    container.appendChild(instance.renderSomething(state, instance))
-
-    container.appendChild(instance.renderHeader(state, instance))
-    container.appendChild(instance.renderEditor(state, instance))
-    container.appendChild(instance.renderComments(state, instance))
-    container.appendChild(instance.renderFooter(state, instance))
-    return container
-  },
-  renderSomething(state, instance) {
-    const container = document.createElement('div')
-    container.lang = "en-US"
-    if (state.user.login) {
-      container.innerText = `Hello, ${state.user.login}`
-    }
-    return container
-  }
-}
-
-var gitment = new Gitment({
-  id: "Docker-资源限制", // 可选。默认为 location.href
-  owner: "inRush",
-  repo: "inRush.github.io",
-  oauth: {
-    client_id: "3bca99b248e249ddc97a",
-    client_secret: "01d0c0f19210b3eb67ce631776d4052e96fdbecd",
-  },
-  theme: myTheme
-})
-gitment.render('comments-container');
-
-// gitment.render(document.body);
-
-</script>
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -441,9 +343,9 @@ gitment.render('comments-container');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Docker 资源限制 | inRush</title>
+  <title>切换Cargo的源 | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
-<meta name="keywords" content="docker">
+  <meta name="description" content="原本的源巨慢 没有config文件可以新建一个  在 $HOME/.cargo/config 中添加如下内容：12345[source.crates-io]replace-with = &amp;apos;ustc&amp;apos;[source.ustc]registry = &amp;quot;git://mirrors.ustc.edu.cn/crates.io-index&amp;quot; 如果所处的环境中不允许使">
+<meta name="keywords" content="rust,cargo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker 资源限制">
-<meta property="og:url" content="http://inrush.me/2018/06/30/Docker-资源限制/index.html">
+<meta property="og:title" content="切换Cargo的源">
+<meta property="og:url" content="http://inrush.me/2018/07/04/切换Cargo的源/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
-<meta property="og:updated_time" content="2018-06-30T13:29:12.000Z">
+<meta property="og:description" content="原本的源巨慢 没有config文件可以新建一个  在 $HOME/.cargo/config 中添加如下内容：12345[source.crates-io]replace-with = &amp;apos;ustc&amp;apos;[source.ustc]registry = &amp;quot;git://mirrors.ustc.edu.cn/crates.io-index&amp;quot; 如果所处的环境中不允许使">
+<meta property="og:updated_time" content="2018-07-04T07:52:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker 资源限制">
-<meta name="twitter:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
+<meta name="twitter:title" content="切换Cargo的源">
+<meta name="twitter:description" content="原本的源巨慢 没有config文件可以新建一个  在 $HOME/.cargo/config 中添加如下内容：12345[source.crates-io]replace-with = &amp;apos;ustc&amp;apos;[source.ustc]registry = &amp;quot;git://mirrors.ustc.edu.cn/crates.io-index&amp;quot; 如果所处的环境中不允许使">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -177,35 +177,33 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker-资源限制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-切换Cargo的源" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Docker 资源限制
+      切换Cargo的源
     </h1>
   
 
         
-        <a href="/2018/06/30/Docker-资源限制/" class="archive-article-date">
-  	<time datetime="2018-06-30T13:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+        <a href="/2018/07/04/切换Cargo的源/" class="archive-article-date">
+  	<time datetime="2018-07-04T07:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br><a id="more"></a></p>
+        <blockquote>
+<p>原本的源巨慢</p>
+<p>没有config文件可以新建一个</p>
 </blockquote>
-<h3 id="2-限定CPU"><a href="#2-限定CPU" class="headerlink" title="2. 限定CPU"></a>2. 限定CPU</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-c, --cpu-shares int  [CPU shares (relative weight)]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>–cpu-shares 指定的CPU是占比多少 \<br>example: \<br>A –cpu-shares 5  # 设置占比5 \<br>B –cpu-shares 10  # 设置占比10 \<br>A cpu + B cpu = 100%  # A所占的CPU加上B所占的CPU等于全部CPU\<br>B cpu = A cpu * 2 ===&gt; 10 / 5 = 2 也就是B占的CPU总是A的两倍</p>
-</blockquote>
+<p>在 $HOME/.cargo/config 中添加如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[source.crates-io]</div><div class="line">replace-with = &apos;ustc&apos;</div><div class="line"></div><div class="line">[source.ustc]</div><div class="line">registry = &quot;git://mirrors.ustc.edu.cn/crates.io-index&quot;</div></pre></td></tr></table></figure></p>
+<p>如果所处的环境中不允许使用 git 协议，可以把上述地址改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">registry = &quot;https://mirrors.ustc.edu.cn/crates.io-index&quot;</div></pre></td></tr></table></figure>
 
       
 
@@ -240,24 +238,17 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rust</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cargo</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -307,7 +298,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/06/30/Docker-资源限制/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/07/04/切换Cargo的源/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +312,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/30/Docker-命令行命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/04/Java-调用-Rust/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Docker 命令行命令
+          Java 调用 Rust
         
       </div>
     </a>
   
   
-    <a href="/2018/06/30/Docker练习示例-一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker练习示例(一)</div>
+    <a href="/2018/07/04/Rust-基础学习-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Rust 基础学习(一)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +391,7 @@ const myTheme = {
 }
 
 var gitment = new Gitment({
-  id: "Docker-资源限制", // 可选。默认为 location.href
+  id: "切换Cargo的源", // 可选。默认为 location.href
   owner: "inRush",
   repo: "inRush.github.io",
   oauth: {
