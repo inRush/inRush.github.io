@@ -883,7 +883,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span> --memory 200M 15c336f15d45 # total memory = 400M</div></pre></td></tr></table></figure>
+<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br>
         
@@ -1036,19 +1036,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">skill</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color1">skill</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
