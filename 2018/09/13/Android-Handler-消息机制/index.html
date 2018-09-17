@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Docker 基础学习之Dockerfile | inRush</title>
+  <title>Android Handler 消息机制 | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命令 FROM: 指定 Base image 1FROM centos  LABEL: 类似于注释 1LABEL version = &quot;1.0&quot;  RUN: 执行命令并创建新的Image Layer 12RUN yum update &amp;amp;&amp;amp; yum install -y vim \python-dev    #反斜杠表示换行  WORKDIR: 切换镜像内的工作目录 (类似于cd命令">
-<meta name="keywords" content="docker">
+  <meta name="description" content="子线程使用 Handler因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的">
+<meta name="keywords" content="handler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker 基础学习之Dockerfile">
-<meta property="og:url" content="http://inrush.me/2018/06/30/Docker-基础学习之Dockerfile/index.html">
+<meta property="og:title" content="Android Handler 消息机制">
+<meta property="og:url" content="http://inrush.me/2018/09/13/Android-Handler-消息机制/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="命令 FROM: 指定 Base image 1FROM centos  LABEL: 类似于注释 1LABEL version = &quot;1.0&quot;  RUN: 执行命令并创建新的Image Layer 12RUN yum update &amp;amp;&amp;amp; yum install -y vim \python-dev    #反斜杠表示换行  WORKDIR: 切换镜像内的工作目录 (类似于cd命令">
-<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB71cf902569c74313a831265c1b49988e?method=download&shareKey=2ed1674b1120fd3240b96e0fd9674eba">
-<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBc7c1758a4fc639de69a011a8975be9bc?method=download&shareKey=d8fcc7ab01b30dc2820387b2d36ce158">
-<meta property="og:updated_time" content="2018-07-01T01:36:09.000Z">
+<meta property="og:description" content="子线程使用 Handler因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的">
+<meta property="og:image" content="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg">
+<meta property="og:image" content="http://qiniu.inrush.me/2018-09-16-Handler消息机制流程.png">
+<meta property="og:updated_time" content="2018-09-16T12:22:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker 基础学习之Dockerfile">
-<meta name="twitter:description" content="命令 FROM: 指定 Base image 1FROM centos  LABEL: 类似于注释 1LABEL version = &quot;1.0&quot;  RUN: 执行命令并创建新的Image Layer 12RUN yum update &amp;amp;&amp;amp; yum install -y vim \python-dev    #反斜杠表示换行  WORKDIR: 切换镜像内的工作目录 (类似于cd命令">
-<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB71cf902569c74313a831265c1b49988e?method=download&shareKey=2ed1674b1120fd3240b96e0fd9674eba">
+<meta name="twitter:title" content="Android Handler 消息机制">
+<meta name="twitter:description" content="子线程使用 Handler因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的">
+<meta name="twitter:image" content="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -180,97 +180,56 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker-基础学习之Dockerfile" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android-Handler-消息机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Docker 基础学习之Dockerfile
+      Android Handler 消息机制
     </h1>
   
 
         
-        <a href="/2018/06/30/Docker-基础学习之Dockerfile/" class="archive-article-date">
-  	<time datetime="2018-06-30T12:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+        <a href="/2018/09/13/Android-Handler-消息机制/" class="archive-article-date">
+  	<time datetime="2018-09-13T12:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
-<li><p><strong>FROM</strong>: 指定 Base image</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> centos</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>LABEL</strong>: 类似于注释</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LABEL</span><span class="bash"> version = <span class="string">"1.0"</span></span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>RUN</strong>: 执行命令并创建新的Image Layer</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span><span class="bash"> yum update &amp;&amp; yum install -y vim \</span></div><div class="line">python-dev    <span class="comment">#反斜杠表示换行</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>WORKDIR</strong>: 切换镜像内的工作目录 (类似于cd命令,不要用RUN cd)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root  <span class="comment">#最好使用绝对目录,避免一些不必要的麻烦</span></span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>ADD</strong>: 添加文件到镜像中去 (会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD</span><span class="bash"> hello.sh</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>COPY</strong>: 添加文件到镜像中去 (不会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">COPY</span><span class="bash"> hello.sh</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>ENV</strong>: 设置环境变量</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></div><div class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y mysql-server=<span class="string">"<span class="variable">$&#123;MYSQL_VERSION&#125;</span>"</span> </span></div><div class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<a id="more"></a>
+        <h2 id="子线程使用-Handler"><a href="#子线程使用-Handler" class="headerlink" title="子线程使用 Handler"></a>子线程使用 Handler</h2><p>因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的<br><img src="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg" alt=""><br><a id="more"></a></p>
+<h3 id="1-Looper-prepare"><a href="#1-Looper-prepare" class="headerlink" title="1. Looper.prepare();"></a>1. Looper.prepare();</h3><p>其中主要做了以下的事情：</p>
 <ul>
-<li><strong>CMD</strong>: 设置容器启动后默认执行的命令和参数<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span> </span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"param1"</span>,<span class="string">"param2"</span>] <span class="comment">#这两个参数提供给entrypoint作为默认参数,详情请看下面的***ENTRYPOINT***</span></span></div></pre></td></tr></table></figure>
-</li>
+<li>初始化一个Looper</li>
+<li>将Looper设置到Thread中的ThreadLocal中（每个Thread都会有一个ThreadLocal，并且这个ThreadLocal只能是当前的进程访问，不能跨线程访问）</li>
 </ul>
-<blockquote>
-<ol>
-<li>为容器提供默认的执行命令,包括默认的ENTRYPOINT参数 </li>
-<li>如果docker指定了其他的命令,CMD命令会被忽略.</li>
-<li>如果定义了多个CMD,只有最后一个会被执行.</li>
-</ol>
-<p><strong>示例</strong>: \<br><img src="https://note.youdao.com/yws/api/personal/file/WEB71cf902569c74313a831265c1b49988e?method=download&amp;shareKey=2ed1674b1120fd3240b96e0fd9674eba" alt="image"></p>
-</blockquote>
+<h5 id="主要代码："><a href="#主要代码：" class="headerlink" title="主要代码："></a>主要代码：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">(<span class="keyword">boolean</span> quitAllowed)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (sThreadLocal.get() != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Only one Looper may be created per thread"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 这个变量是一个静态的的 ThreadLocal&lt;Looper&gt; 对象</span></div><div class="line">    sThreadLocal.set(<span class="keyword">new</span> Looper(quitAllowed));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 在Lopper的prepare函数中，会执行一个静态初始化的ThreadLocal的set函数</span></div><div class="line"><span class="comment">// 这个set的函数主要做的就是获取当前的进程，然后获取该进程的ThreadLocal</span></div><div class="line"><span class="comment">// 以当前this对象作为Key，保存到一个Entry对象中</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>)</div><div class="line">        map.set(<span class="keyword">this</span>, value);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        createMap(t, value);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Entry Class</span></div><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span> <span class="keyword">extends</span> <span class="title">WeakReference</span>&lt;<span class="title">ThreadLocal</span>&lt;?&gt;&gt; </span>&#123;</div><div class="line">    <span class="comment">/** The value associated with this ThreadLocal. */</span></div><div class="line">    Object value;</div><div class="line"></div><div class="line">    Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</div><div class="line">        <span class="keyword">super</span>(k);</div><div class="line">        value = v;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 此处就是获取进程中的Looper对象的</span></div><div class="line"><span class="comment">// 其实就是获取到上面set方法中设置的Looper对象</span></div><div class="line"><span class="comment">// 为什么能取到呢？因为set和get方法都是Looper中的一个static ThreadLocal进行操作的</span></div><div class="line"><span class="comment">// 所以set和get的this对象是同一个，然后取对应进程的ThreadLocalMap取出Looper就好了</span></div><div class="line"><span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</div><div class="line">        ThreadLocalMap.Entry e = map.getEntry(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">            T result = (T)e.value;</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> setInitialValue();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-new-Handler"><a href="#2-new-Handler" class="headerlink" title="2. new Handler()"></a>2. new Handler()</h3><p>其中最主要做的事情如下：</p>
 <ul>
-<li><strong>ENTRYPOINT</strong>: 设置容器启动时运行的命令</li>
+<li>获取当前线程的Looper（如若获取不到，会抛出RuntimeException）</li>
+<li>获取Looper中的MessageQueue</li>
 </ul>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<ol>
-<li>让容器以应用程序或者服务的形式运行</li>
-<li>不会被忽略,一定会执行</li>
-<li>指令为 exec 模式时，如果run命令后面有参数，那么后面的全部都会作为entrypoint的参数。如果run后面没有额外的参数，但是cmd有，那么cmd的全部内容会作为entrypoint的参数 – example <strong>CMD</strong> [“param1”,”param2”]</li>
-<li>指令为 shell 模式时，会完全忽略命令行参数,包括CMD指定的默认参数</li>
-<li>显式的指定 –entrypoint 参数,可以覆盖原有的entrypoint</li>
-<li>写一个Shell作为entrypoint<br><img src="https://note.youdao.com/yws/api/personal/file/WEBc7c1758a4fc639de69a011a8975be9bc?method=download&amp;shareKey=d8fcc7ab01b30dc2820387b2d36ce158" alt="image"></li>
-</ol>
-</blockquote>
+<h5 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 主要就是通过Looper的myLooper获取当前线程Looper</span></div><div class="line"><span class="comment">// 然后再获取Looper中的MessageQueue</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Handler</span><span class="params">(Callback callback, <span class="keyword">boolean</span> async)</span> </span>&#123;</div><div class="line">    mLooper = Looper.myLooper();</div><div class="line">    <span class="keyword">if</span> (mLooper == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(</div><div class="line">                <span class="string">"Can't create handler inside thread that has not called Looper.prepare()"</span>);</div><div class="line">    &#125;</div><div class="line">    mQueue = mLooper.mQueue;</div><div class="line">    mCallback = callback;</div><div class="line">    mAsynchronous = async;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// myLooper其实就是调用了上面的get方法</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="meta">@Nullable</span> <span class="function">Looper <span class="title">myLooper</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> sThreadLocal.get();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-Looper-loop"><a href="#3-Looper-loop" class="headerlink" title="3. Looper.loop();"></a>3. Looper.loop();</h3><p>主要做了以下的事情：</p>
 <ul>
-<li><strong>VOLUME</strong></li>
-<li><strong>EXPOSE</strong></li>
+<li>获取当前的Looper，然后开启无限循环，获取MessageQueue中的消息，有消息则调用Message对应的Handler执行（Message和Handler是在后续的sendMessage中进行绑定的），没有消息的话就阻塞进程</li>
 </ul>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><blockquote>
-<ol>
-<li>ADD 和 COPY 区别就是 ADD 不仅将文件放到指定的目录,还会进行解压缩,而 COPY 只会将文件放到指定目录, 优先使用 COPY,因为 ADD 有解压功能,解压缩功能在 ADD 这个词中没有表现出来.</li>
-<li>添加远程文件使用 curl 或 wget</li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="RUN-CMD-ENTRYPOINT-的两种模式"><a href="#RUN-CMD-ENTRYPOINT-的两种模式" class="headerlink" title="RUN, CMD, ENTRYPOINT 的两种模式"></a>RUN, CMD, ENTRYPOINT 的两种模式</h2><ul>
-<li><p><strong>Shell</strong></p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y vim </span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span> </span></div><div class="line">ECTRYPOINT** echo <span class="string">"hello docker"</span> </div><div class="line">&gt; 默认是在 <span class="keyword">Shell</span><span class="bash"> 环境中运行,执行的命令是在/bin/bash中运行</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Exec</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;apt-get&quot;, &quot;install&quot;, &quot;-y&quot;, &quot;vim&quot;] \</div><div class="line">CMD [&quot;echo&quot; &quot;hello docker&quot;] \</div><div class="line">ECTRYPOINT** [&quot;echo&quot;, &quot;hello docker&quot;] \</div><div class="line">&gt; 不在 Shell 环境中执行,只是单纯执行了 echo ,如果要使执行的命令是在 /bin/bash 中运行,需要写成[&quot;/bin/bash&quot; ,&quot;-c&quot;,&quot;需要执行的命令&quot;]</div></pre></td></tr></table></figure>
-</li>
+<h5 id="主要代码-1"><a href="#主要代码-1" class="headerlink" title="主要代码"></a>主要代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> Looper me = myLooper();</div><div class="line">    <span class="keyword">if</span> (me == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"No Looper; Looper.prepare() wasn't called on this thread."</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">final</span> MessageQueue queue = me.mQueue;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (;;) &#123;</div><div class="line">        <span class="comment">// 调用MessageQueue中的next方法获取下一条Message，没有的话就阻塞在这里</span></div><div class="line">        Message msg = queue.next(); <span class="comment">// might block</span></div><div class="line">        <span class="keyword">if</span> (msg == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 调用对应的Handler进行处理</span></div><div class="line">            msg.target.dispatchMessage(msg);</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (traceTag != <span class="number">0</span>) &#123;</div><div class="line">                Trace.traceEnd(traceTag);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    msg.recycleUnchecked();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-mHandler-sendMessage-msg"><a href="#4-mHandler-sendMessage-msg" class="headerlink" title="4. mHandler.sendMessage(msg)"></a>4. mHandler.sendMessage(msg)</h3><p>主要做了以下的事情：</p>
+<ul>
+<li>调用MessageQueue的enqueueMessage方法，将Message与Handler绑定，并把Message插入MessageQueue中。<br>主要代码：</li>
 </ul>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** [<span class="string">"/bin/echo"</span>,<span class="string">"hello <span class="variable">$name</span>"</span>] </span></div><div class="line">&gt; 输出: hello $name</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** <span class="built_in">echo</span> <span class="string">"hello <span class="variable">$name</span>"</span> </span></div><div class="line">&gt; 输出: hello Docker</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** [<span class="string">"/bin/bash"</span> ,<span class="string">"-c"</span>,<span class="string">"echo hello <span class="variable">$name</span>"</span>] </span></div><div class="line">&gt; 输出: hello Docker</div></pre></td></tr></table></figure>
-<h2 id="gt-CMD-命令也是一样的效果"><a href="#gt-CMD-命令也是一样的效果" class="headerlink" title="&gt; CMD 命令也是一样的效果"></a>&gt; CMD 命令也是一样的效果</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">sendMessageAtTime</span><span class="params">(Message msg, <span class="keyword">long</span> uptimeMillis)</span> </span>&#123;</div><div class="line">    MessageQueue queue = mQueue;</div><div class="line">    <span class="keyword">return</span> enqueueMessage(queue, msg, uptimeMillis);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">enqueueMessage</span><span class="params">(MessageQueue queue, Message msg, <span class="keyword">long</span> uptimeMillis)</span> </span>&#123;</div><div class="line">    <span class="comment">// 将msg与Handler进行绑定</span></div><div class="line">    msg.target = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">if</span> (mAsynchronous) &#123;</div><div class="line">        msg.setAsynchronous(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 加入消息队列中</span></div><div class="line">    <span class="keyword">return</span> queue.enqueueMessage(msg, uptimeMillis);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-整个消息流程解析"><a href="#5-整个消息流程解析" class="headerlink" title="5. 整个消息流程解析"></a>5. 整个消息流程解析</h3><p><img src="http://qiniu.inrush.me/2018-09-16-Handler消息机制流程.png" alt="Handler消息机制流程"></p>
+<h4 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h4><ul>
+<li><strong>MessageQueue.enqueueMessage()</strong></li>
+<li><strong>MessageQueue.next()</strong></li>
+</ul>
+<p><strong>主要代码</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 该方法主要就是放消息到消息队列中，这个队列并没有严格按照先进先出的方式</span></div><div class="line"><span class="comment">// 而是除了按照来的先后顺序排列意外，还会按照时间的顺序排列</span></div><div class="line"><span class="comment">// 首先按照时间顺序，时间一致则放到最后</span></div><div class="line"> <span class="function"><span class="keyword">boolean</span> <span class="title">enqueueMessage</span><span class="params">(Message msg, <span class="keyword">long</span> when)</span> </span>&#123;</div><div class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">        msg.markInUse();</div><div class="line">        msg.when = when;</div><div class="line">        Message p = mMessages;</div><div class="line">        <span class="keyword">boolean</span> needWake;</div><div class="line">        <span class="comment">// 这里就是判断时间是否小于当前队列中最前面的Message的时间</span></div><div class="line">        <span class="comment">// 如果小于的话，那么就插到队头上</span></div><div class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span> || when == <span class="number">0</span> || when &lt; p.when) &#123;</div><div class="line">            msg.next = p;</div><div class="line">            mMessages = msg;</div><div class="line">            needWake = mBlocked;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 这里的needWake主要是判断消息循环的线程是否需要进行唤醒</span></div><div class="line">            <span class="comment">// 需要满足的条件是</span></div><div class="line">            <span class="comment">// 1. 当前的mBlocked为true，也就是说当前是处于阻塞状态的</span></div><div class="line">            <span class="comment">// 2. p为队头的Message，这个主要就是判断当前是否为第一个消息,如果不是第一个，那么就没有必要唤醒了</span></div><div class="line">            <span class="comment">// 3. 最后一个是判断消息是否是异步的</span></div><div class="line">            needWake = mBlocked &amp;&amp; p.target == <span class="keyword">null</span> &amp;&amp; msg.isAsynchronous();</div><div class="line">            Message prev;</div><div class="line">            <span class="comment">// 这里就是找到一个后面的Message的时间比当前的Message时间大的位置</span></div><div class="line">            <span class="comment">// 为何要这样做，其实想想就能明白了，要是前面的when很大，那么线程就会一直阻塞，等待该消息时间完成,</span></div><div class="line">            <span class="comment">// 那么后面when小的，本应该处理的了，但是却被前面的占着茅坑不拉屎的挡住了。</span></div><div class="line">            <span class="keyword">for</span> (;;) &#123;</div><div class="line">                prev = p;</div><div class="line">                p = p.next;</div><div class="line">                <span class="keyword">if</span> (p == <span class="keyword">null</span> || when &lt; p.when) &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (needWake &amp;&amp; p.isAsynchronous()) &#123;</div><div class="line">                    needWake = <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            msg.next = p; <span class="comment">// invariant: p == prev.next</span></div><div class="line">            prev.next = msg;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (needWake) &#123;</div><div class="line">            nativeWake(mPtr);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// MessageQueue的next方法</span></div><div class="line"><span class="comment">// 其中:</span></div><div class="line"><span class="comment">// nextPollTimeoutMillis = -1，一直阻塞不会超时</span></div><div class="line"><span class="comment">// nextPollTimeoutMillis = 0，不会阻塞，立即返回。</span></div><div class="line"><span class="comment">// nextPollTimeoutMillis &gt; 0，最长阻塞nextPollTimeoutMillis毫秒(超时)，如果期间有程序唤醒会立即返回。</span></div><div class="line"><span class="function">Message <span class="title">next</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">long</span> ptr = mPtr;</div><div class="line">    <span class="keyword">if</span> (ptr == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> pendingIdleHandlerCount = -<span class="number">1</span>; </div><div class="line">    <span class="keyword">int</span> nextPollTimeoutMillis = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (;;) &#123;</div><div class="line">        <span class="keyword">if</span> (nextPollTimeoutMillis != <span class="number">0</span>) &#123;</div><div class="line">            Binder.flushPendingCommands();</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 使用Native方法进行阻塞nextPollTimeoutMillis毫秒的时间</span></div><div class="line">        nativePollOnce(ptr, nextPollTimeoutMillis);</div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">            <span class="keyword">final</span> <span class="keyword">long</span> now = SystemClock.uptimeMillis();</div><div class="line">            Message prevMsg = <span class="keyword">null</span>;</div><div class="line">            Message msg = mMessages;</div><div class="line">            <span class="comment">// 此处的target为null，其主要的作用就是插入一个消息屏障，这个屏障之后的所有同步消息都不会被执行，即使时间已经到了也不会执行。</span></div><div class="line">            <span class="comment">// 可以通过public void removeSyncBarrier(int token)来移除这个屏障，参数是post方法的返回值。</span></div><div class="line">            <span class="comment">// 具体应用场景可以查看ViewRootImpl中的void scheduleTraversals()方法，它在绘图之前会插入一个消息屏障，绘制之后移除</span></div><div class="line">            <span class="keyword">if</span> (msg != <span class="keyword">null</span> &amp;&amp; msg.target == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">do</span> &#123;</div><div class="line">                    prevMsg = msg;</div><div class="line">                    msg = msg.next;</div><div class="line">                &#125; <span class="keyword">while</span> (msg != <span class="keyword">null</span> &amp;&amp; !msg.isAsynchronous());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (msg != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">// 时间没有到，那么就利用nativePollOnce等待nextPollTimeoutMillis毫秒的事件</span></div><div class="line">                <span class="comment">// 因为在这个队列里的消息，是一个按照when从小到大排列的一个队列，所以第一个消息的when总是最小的，那就不用担心后面的消息会超时</span></div><div class="line">                <span class="keyword">if</span> (now &lt; msg.when) &#123;</div><div class="line">                    nextPollTimeoutMillis = (<span class="keyword">int</span>) Math.min(msg.when - now, Integer.MAX_VALUE);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">// 这里主要就是取出第一个Message,然后将队列的头指针mMessages指向下一个Message节点</span></div><div class="line">                    mBlocked = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">if</span> (prevMsg != <span class="keyword">null</span>) &#123;</div><div class="line">                        prevMsg.next = msg.next;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        mMessages = msg.next;</div><div class="line">                    &#125;</div><div class="line">                    msg.next = <span class="keyword">null</span>;</div><div class="line">                    <span class="keyword">return</span> msg;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                nextPollTimeoutMillis = -<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (mQuitting) &#123;</div><div class="line">                dispose();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 直接到上面进行阻塞一定时间或者无限阻塞，等待消息完成或新消息进到队列中</span></div><div class="line">            <span class="keyword">if</span> (pendingIdleHandlerCount &lt;= <span class="number">0</span>) &#123;</div><div class="line">                mBlocked = <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 重置这个的话就是防止一会再执行到这里来</span></div><div class="line">        pendingIdleHandlerCount = <span class="number">0</span>;</div><div class="line">        nextPollTimeoutMillis = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
 
       
@@ -304,7 +263,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">handler</a>
         		</li>
       		
 		</ul>
@@ -316,7 +275,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        			<a href="/categories/Android/" class="article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -371,7 +330,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/06/30/Docker-基础学习之Dockerfile/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/09/13/Android-Handler-消息机制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -385,18 +344,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/30/Docker练习示例-一/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/16/AsyncTask-使用以及源码解析/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Docker练习示例(一)
+          AsyncTask 使用以及源码解析
         
       </div>
     </a>
   
   
-    <a href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PHP和Nginx组合,页面发送Ajax请求出现502</div>
+    <a href="/2018/09/13/基础学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基础学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -464,7 +423,7 @@ const myTheme = {
 }
 
 var gitment = new Gitment({
-  id: "Docker-基础学习之Dockerfile", // 可选。默认为 location.href
+  id: "Android-Handler-消息机制", // 可选。默认为 location.href
   owner: "inRush",
   repo: "inRush.github.io",
   oauth: {

@@ -174,6 +174,222 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-AsyncTask-使用以及源码解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/16/AsyncTask-使用以及源码解析/">AsyncTask 使用以及源码解析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/16/AsyncTask-使用以及源码解析/" class="archive-article-date">
+  	<time datetime="2018-09-16T12:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="AsyncTask-的使用"><a href="#AsyncTask-的使用" class="headerlink" title="AsyncTask 的使用"></a>AsyncTask 的使用</h2><p>首先定义一个Class，继承AsyncTask<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncTaskDemo</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Integer</span>, <span class="title">String</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"AsyncTask"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPreExecute();</div><div class="line">        Log.d(TAG, <span class="string">"onPreExecute: 任务开始了"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... values)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onProgressUpdate(values);</div><div class="line">        Log.d(TAG, <span class="string">"onProgressUpdate: 当前进度: "</span> + String.valueOf(values[<span class="number">0</span>]));</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">doInBackground</span><span class="params">(Void... voids)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i += <span class="number">10</span>) &#123;</div><div class="line">            publishProgress(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">"完成了"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPostExecute(s);</div><div class="line">        Log.d(TAG, <span class="string">"onPostExecute: "</span> + s);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用的时候也很简单，只要new一个出来，然后使用execute就好了，</span></div><div class="line"><span class="comment">// 其中execute接收一个参数列表，接收在AsyncTask定义的传入参数类型的多个参数</span></div><div class="line"><span class="comment">// 在doInBackground中接收的参数其实就是一个数组，循环遍历就好了</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">runTask</span><span class="params">()</span> </span>&#123;</div><div class="line">    AsyncTaskDemo demo = <span class="keyword">new</span> AsyncTaskDemo();</div><div class="line">    demo.execute();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行结果：<br><img src="http://qiniu.inrush.me/2018-09-17-15371465636817.jpg" alt=""><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">async</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/16/AsyncTask-使用以及源码解析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Android-Handler-消息机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/13/Android-Handler-消息机制/">Android Handler 消息机制</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/13/Android-Handler-消息机制/" class="archive-article-date">
+  	<time datetime="2018-09-13T12:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="子线程使用-Handler"><a href="#子线程使用-Handler" class="headerlink" title="子线程使用 Handler"></a>子线程使用 Handler</h2><p>因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的<br><img src="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg" alt=""><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">handler</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android/" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/13/Android-Handler-消息机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-基础学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/13/基础学习/">基础学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/13/基础学习/" class="archive-article-date">
+  	<time datetime="2018-09-13T02:33:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><strong>将物理地址转换为 IP 地址的协议是</strong>：地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。地址解析协议是根据IP地址获取物理地址的协议，而反向地址转换协议（RARP）是局域网的物理机器从网关服务器的ARP表或者缓存上根据MAC地址请求IP地址的协议，其功能与地址解析协议相反。</li>
+</ol>
+<blockquote>
+<p><a href="https://blog.csdn.net/windeal3203/article/details/50672643" target="_blank" rel="external">ARP 协议解析</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Interview/" class="article-tag-list-link color5">Interview</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/13/基础学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Android NDK 学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -195,46 +411,8 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>前几天试了下使用 Java 调用 Rust，发现了编译出来的 so 文件过大的问题，而且对于 Rust 的语法也不是很熟悉，所以就用 C++ 写一下 NDK，Android Studio 在新建项目的时候就可以一步生成好 C++ 的 NDK 模板代码，只要在新建的时候，勾选上 include C++ support 就可以了，还有在 Finish 之前，选中下面途中的两项，这样系统可以自动生成一些样例代码，便于理解。</p>
-</blockquote>
-<p><img src="/resources/15307782035634.jpg" alt=""><br><img src="/resources/15307787775304.jpg" alt=""></p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><blockquote>
-<p>这个准备工作其实和上次用 Android 调用 Rust 的是一样的，就是把 NDK，CMake 给装上，具体的步骤请看我的这篇文章</p>
-</blockquote>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h5 id="1-按照上面的选项进行新建项目，新建完成以后，在-main-src-目录下会有一个-cpp-的目录，该目录就是存放-c-代码的地方，在项目的根目录上有一个-CMakeLists-txt-文件，这个文件是编写生成-native-库的规则的，比如有个-add-library-的方法，这个方法就是用来定义一个-library-，然后在-Java-代码中进行调用的。"><a href="#1-按照上面的选项进行新建项目，新建完成以后，在-main-src-目录下会有一个-cpp-的目录，该目录就是存放-c-代码的地方，在项目的根目录上有一个-CMakeLists-txt-文件，这个文件是编写生成-native-库的规则的，比如有个-add-library-的方法，这个方法就是用来定义一个-library-，然后在-Java-代码中进行调用的。" class="headerlink" title="1. 按照上面的选项进行新建项目，新建完成以后，在 main/src 目录下会有一个 cpp 的目录，该目录就是存放 c++ 代码的地方，在项目的根目录上有一个 CMakeLists.txt 文件，这个文件是编写生成 native 库的规则的，比如有个 add_library 的方法，这个方法就是用来定义一个 library ，然后在 Java 代码中进行调用的。"></a>1. 按照上面的选项进行新建项目，新建完成以后，在 main/src 目录下会有一个 cpp 的目录，该目录就是存放 c++ 代码的地方，在项目的根目录上有一个 CMakeLists.txt 文件，这个文件是编写生成 native 库的规则的，比如有个 add_library 的方法，这个方法就是用来定义一个 library ，然后在 Java 代码中进行调用的。</h5><blockquote>
-<p>注意： 这个 <strong>add_library</strong> 的方法，是定义一个 library 的，就是前两部分现在不能添加东西进去，比如我这里的是这样的：<br><img src="/resources/15307795941571.jpg" alt=""><br>其中的 native-lib 这里不能再添加其他东西，只能修改 native-lib 这个名字，这个名字就是加载的时候 library 的名字，看了下面的就知道了。<br>SHARED 这里也不能加东西，默认是 共享库，还可以为 STATIC ，静态库<br>最后的第三部分就是添加我们新加的 CPP 文件路径的，比如上面我的 <code>src/main/cpp/native-helper.cpp</code> 就是我在 main/src/cpp 文件夹内新加的 CPP 文件<br>具体的用法以后有时间再写一篇文章专门讲这个的。</p>
-</blockquote>
-<h5 id="2-在-cpp-文件夹内新建一个新的-cpp-文件，叫-native-helper"><a href="#2-在-cpp-文件夹内新建一个新的-cpp-文件，叫-native-helper" class="headerlink" title="2. 在 cpp 文件夹内新建一个新的 cpp 文件，叫 native-helper"></a>2. 在 cpp 文件夹内新建一个新的 cpp 文件，叫 native-helper</h5><p><img src="/resources/15307801990937.jpg" alt=""></p>
-<p>勾选上这里，可以生成和 cpp 文件相同的一个头文件<br><img src="/resources/15307802358933.jpg" alt=""></p>
-<h5 id="3-在-native-helper-cpp-文件修改为以下代码"><a href="#3-在-native-helper-cpp-文件修改为以下代码" class="headerlink" title="3. 在 native-helper.cpp 文件修改为以下代码"></a>3. 在 native-helper.cpp 文件修改为以下代码</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#include "native-helper.h"</div><div class="line"></div><div class="line">JNIEXPORT jstring</div><div class="line">JNICALL</div><div class="line">Java_me_inrush_ndkdemo_NativeHelper_getAppKey(JNIEnv *env, jobject) &#123;</div><div class="line"></div><div class="line">    //测试代码, 没有任何意义</div><div class="line">    char* app_key = const_cast&lt;char *&gt;("5465465416948");</div><div class="line"></div><div class="line">    //生成 Java 中的字符串对象</div><div class="line">    //指针的指针</div><div class="line">    // env &lt;=&gt; JNINativeInterface** C语言</div><div class="line">    return env-&gt;NewStringUTF(app_key);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：这个方法的名称是有要求的，格式为 <strong>Java<em>完整的Java类名称(包括包名)</em>方法名称</strong>。<br>上面例子中，我定义的类为 me.inrush.ndkdemo.NativeHelper, 方法为 getAppKey。</p>
-</blockquote>
-<h5 id="4-在-native-helper-h-文件修改为以下代码"><a href="#4-在-native-helper-h-文件修改为以下代码" class="headerlink" title="4. 在 native-helper.h 文件修改为以下代码"></a>4. 在 native-helper.h 文件修改为以下代码</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;jni.h&gt;</div><div class="line"></div><div class="line">#ifndef NDKDEMO_ME_INRUSH_NKDDEMO_NATIVEHELPER_H</div><div class="line">#define NDKDEMO_ME_INRUSH_NKDDEMO_NATIVEHELPER_H</div><div class="line">#ifdef __cplusplus</div><div class="line">extern "C" &#123;</div><div class="line">#endif</div><div class="line"></div><div class="line">JNIEXPORT jstring JNICALL Java_me_inrush_ndkdemo_NativeHelper_getAppKey</div><div class="line">        (JNIEnv *, jobject);</div><div class="line"></div><div class="line">#ifdef __cplusplus</div><div class="line">&#125;</div><div class="line">#endif</div><div class="line">#endif //NDKDEMO_ME_INRUSH_NKDDEMO_NATIVEHELPER_H</div></pre></td></tr></table></figure>
-<h5 id="5-在-CMakeLists-txt-文件中修改-add-library-方法为以下内容"><a href="#5-在-CMakeLists-txt-文件中修改-add-library-方法为以下内容" class="headerlink" title="5. 在 CMakeLists.txt 文件中修改 add_library 方法为以下内容"></a>5. 在 CMakeLists.txt 文件中修改 add_library 方法为以下内容</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">add_library( # Sets the name of the library.</div><div class="line">             native-lib</div><div class="line"></div><div class="line">             # Sets the library as a shared library.</div><div class="line">             SHARED</div><div class="line"></div><div class="line">             # Provides a relative path to your source file(s).</div><div class="line">             src/main/cpp/native-lib.cpp</div><div class="line">             src/main/cpp/native-helper.cpp)</div></pre></td></tr></table></figure>
-<p>主要就是添加了 <code>src/main/cpp/native-helper.cpp</code> 这部分。</p>
-<blockquote>
-<p>这里的意思大概就是一个 library 名字为 native-lib，生成的模式是 SHARED 模式，这个库包含的文件为 <code>src/main/cpp/native-lib.cpp</code> 和 <code>src/main/cpp/native-helper.cpp</code> 这两个文件</p>
-</blockquote>
-<h5 id="6-新建一个-NativeHelper-类，这个类所在的包名一定要和上面定义的要一致，需要建在me-inrush-ndkdemo-这个包下面，具体的包名每个人的应该都不同，这个只是我这里的包名而已，反正-cpp-里定义的包名要和现在新建的类的名称需要一致。"><a href="#6-新建一个-NativeHelper-类，这个类所在的包名一定要和上面定义的要一致，需要建在me-inrush-ndkdemo-这个包下面，具体的包名每个人的应该都不同，这个只是我这里的包名而已，反正-cpp-里定义的包名要和现在新建的类的名称需要一致。" class="headerlink" title="6. 新建一个 NativeHelper 类，这个类所在的包名一定要和上面定义的要一致，需要建在me.inrush.ndkdemo 这个包下面，具体的包名每个人的应该都不同，这个只是我这里的包名而已，反正 cpp 里定义的包名要和现在新建的类的名称需要一致。"></a>6. 新建一个 NativeHelper 类，这个类所在的包名一定要和上面定义的要一致，需要建在me.inrush.ndkdemo 这个包下面，具体的包名每个人的应该都不同，这个只是我这里的包名而已，反正 cpp 里定义的包名要和现在新建的类的名称需要一致。</h5><p><img src="/resources/15307812859404.jpg" alt=""></p>
-<h4 id="7-添加-Java-代码到-NativeHelper-类中"><a href="#7-添加-Java-代码到-NativeHelper-类中" class="headerlink" title="7. 添加 Java 代码到 NativeHelper 类中"></a>7. 添加 Java 代码到 NativeHelper 类中</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NativeHelper</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">getAppKey</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="8-在-MainActivity-中修改代码为"><a href="#8-在-MainActivity-中修改代码为" class="headerlink" title="8. 在 MainActivity 中修改代码为"></a>8. 在 MainActivity 中修改代码为</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        // Example of a call to a native method</div><div class="line">        TextView tv = findViewById(R.id.sample_text);</div><div class="line">        tv.setText(NativeHelper.getAppKey());</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：MainActivity 中的 loadLibrary 代码需要注释掉</p>
-</blockquote>
-<h5 id="9-编译运行，要是顺利的话，在-APP-中，就会显示刚刚在-native-helper-cpp-中设置的-app-key"><a href="#9-编译运行，要是顺利的话，在-APP-中，就会显示刚刚在-native-helper-cpp-中设置的-app-key" class="headerlink" title="9. 编译运行，要是顺利的话，在 APP 中，就会显示刚刚在 native-helper.cpp 中设置的 app_key"></a>9. 编译运行，要是顺利的话，在 APP 中，就会显示刚刚在 native-helper.cpp 中设置的 app_key</h5><h3 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h3><h5 id="1-参考的文章说的不太明白，导致了我以为新建了一个-cpp-文件就是一个-library，-然后loadLibrary的时候就写了-native-helpder-然后就出现了以下的错误"><a href="#1-参考的文章说的不太明白，导致了我以为新建了一个-cpp-文件就是一个-library，-然后loadLibrary的时候就写了-native-helpder-然后就出现了以下的错误" class="headerlink" title="1. 参考的文章说的不太明白，导致了我以为新建了一个 cpp 文件就是一个 library， 然后loadLibrary的时候就写了 native-helpder, 然后就出现了以下的错误:"></a>1. 参考的文章说的不太明白，导致了我以为新建了一个 cpp 文件就是一个 library， 然后loadLibrary的时候就写了 native-helpder, 然后就出现了以下的错误:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/me.inrush.ndkdemo-1/base.apk&quot;],nativeLibraryDirectories=[/data/app/me.inrush.ndkdemo-1/lib/arm64, /data/app/me.inrush.ndkdemo-1/base.apk!/lib/arm64-v8a, /system/lib64, /vendor/lib64, /system/vendor/lib64, /product/lib64]]] couldn&apos;t find &quot;libnative-helper.so&quot;</div><div class="line">        at java.lang.Runtime.loadLibrary0(Runtime.java:989)</div><div class="line">        at java.lang.System.loadLibrary(System.java:1533)</div><div class="line">        at me.inrush.ndkdemo.NativeHelper.&lt;clinit&gt;(NativeHelper.java:9)</div><div class="line">        at me.inrush.ndkdemo.NativeHelper.getAppKey(Native Method)</div><div class="line">        at me.inrush.ndkdemo.MainActivity.onCreate(MainActivity.java:24)</div><div class="line">        at android.app.Activity.performCreate(Activity.java:6910)</div><div class="line">        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</div><div class="line">        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2746)</div><div class="line">        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2864)</div><div class="line">        at android.app.ActivityThread.-wrap12(ActivityThread.java)</div><div class="line">        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1567)</div><div class="line">        at android.os.Handler.dispatchMessage(Handler.java:105)</div><div class="line">        at android.os.Looper.loop(Looper.java:156)</div><div class="line">        at android.app.ActivityThread.main(ActivityThread.java:6577)</div><div class="line">        at java.lang.reflect.Method.invoke(Native Method)</div><div class="line">        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:941)</div><div class="line">        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:831)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>后面经过 Google 还有仔仔细细看了下那篇文章，思考了下，然后各种尝试，终于成功了，能够运行了。<br>其实最主要的就是要弄明白 CMakeLists.txt 是干什么用的，里面的配置是怎么配置的，有什么作用，比如说这篇文章中说到的，在 add_library 这个配置中，其实里面的 native-lib 就是库的名称，第二部分就是这个库是什么类型的，第三部分就是这个库中包含了哪些文件，然后这个库<strong>只能加载一次</strong>，加载多次的话会出错的，然后 在 java 对应的类中，编写库中所有文件中定义的方法，</p>
-</blockquote>
-<h5 id="2-可能有时候写了-Native-代码以后，发现运行报找不到的错，或者一些奇奇怪怪的错，可能需要在刷新一下-c-的代码，具体方法如下："><a href="#2-可能有时候写了-Native-代码以后，发现运行报找不到的错，或者一些奇奇怪怪的错，可能需要在刷新一下-c-的代码，具体方法如下：" class="headerlink" title="2. 可能有时候写了 Native 代码以后，发现运行报找不到的错，或者一些奇奇怪怪的错，可能需要在刷新一下 c++ 的代码，具体方法如下："></a>2. 可能有时候写了 Native 代码以后，发现运行报找不到的错，或者一些奇奇怪怪的错，可能需要在刷新一下 c++ 的代码，具体方法如下：</h5><blockquote>
-<p>菜单上的 Build &gt; Refresh Linked C++ Projects</p>
-</blockquote>
-<h5 id="3-在-CPP-文件上添加了一个方法以后，需要在头文件，也就是-h-的文件上再添加一个相同的方法，不然会报找不到实现的异常的。"><a href="#3-在-CPP-文件上添加了一个方法以后，需要在头文件，也就是-h-的文件上再添加一个相同的方法，不然会报找不到实现的异常的。" class="headerlink" title="3. 在 CPP 文件上添加了一个方法以后，需要在头文件，也就是 .h 的文件上再添加一个相同的方法，不然会报找不到实现的异常的。"></a>3. 在 CPP 文件上添加了一个方法以后，需要在头文件，也就是 .h 的文件上再添加一个相同的方法，不然会报找不到实现的异常的。</h5><p>–</p>
-<blockquote>
-<p><strong>本人新手菜鸟一个，如有错误，望能指出</strong>。 </p>
-</blockquote>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.jianshu.com/p/0261e6cceb3e" target="_blank" rel="external">Android NDK开发(一)  入门</a></p>
-
+<p>前几天试了下使用 Java 调用 Rust，发现了编译出来的 so 文件过大的问题，而且对于 Rust 的语法也不是很熟悉，所以就用 C++ 写一下 NDK，Android Studio 在新建项目的时候就可以一步生成好 C++ 的 NDK 模板代码，只要在新建的时候，勾选上 include C++ support 就可以了，还有在 Finish 之前，选中下面途中的两项，这样系统可以自动生成一些样例代码，便于理解。<br>
+        
       
 
       
@@ -715,226 +893,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-搭建一个私有的-Docker-Registry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/30/搭建一个私有的-Docker-Registry/">搭建一个私有的 Docker Registry</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/30/搭建一个私有的-Docker-Registry/" class="archive-article-date">
-  	<time datetime="2018-06-30T13:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p><em>提供一个内部访问的DockerHub</em></p>
-<p><em>在一个有docker的主机上创建并运行一个registry的容器,该容器相当于一个web服务器,<strong>但是没有web界面</strong>,该主机你必须能访问. 注意: 该主机不是你当前使用的主机,是另外一台主机</em></p>
-</blockquote>
-<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><h5 id="1-在主机上-不是本地自己的机器-是用来存储registry的机器"><a href="#1-在主机上-不是本地自己的机器-是用来存储registry的机器" class="headerlink" title="1. 在主机上,不是本地自己的机器,是用来存储registry的机器"></a>1. 在主机上,不是本地自己的机器,是用来存储registry的机器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> docker run -d -p 5000:5000 --restart always --name registry registry:2</span></div></pre></td></tr></table></figure>
-<h5 id="2-在你的机器上"><a href="#2-在你的机器上" class="headerlink" title="2. 在你的机器上"></a>2. 在你的机器上</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> docker build -t 10.75.44.222:5000/hello-world // 这里的IP是运行了registry的linux主机的IP,端口就是registry运行绑定的端口,</span></div><div class="line">后面的名字就是你自定义镜像的名字,</div><div class="line"><span class="meta">$</span><span class="bash"> docker push 10.75.44.222:5000/hello-world</span></div></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/30/搭建一个私有的-Docker-Registry/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Docker-命令行命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/30/Docker-命令行命令/">Docker 命令行命令</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/30/Docker-命令行命令/" class="archive-article-date">
-  	<time datetime="2018-06-30T13:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="1-批量删除-none-Image"><a href="#1-批量删除-none-Image" class="headerlink" title="1. 批量删除 none Image"></a>1. 批量删除 none Image</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rmi $(docker images | grep &quot;none&quot; | awk &apos;&#123;print $3&#125;&apos;)</div></pre></td></tr></table></figure>
-<h5 id="2-批量删除-Container"><a href="#2-批量删除-Container" class="headerlink" title="2. 批量删除 Container"></a>2. 批量删除 Container</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rm $(docker ps -aq)</div></pre></td></tr></table></figure>
-<h5 id="3-使用运行中的容器执行命令"><a href="#3-使用运行中的容器执行命令" class="headerlink" title="3. 使用运行中的容器执行命令"></a>3. 使用运行中的容器执行命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker exec 容器ID或Name 需要执行的命令</div></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/30/Docker-命令行命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Docker-资源限制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/30/Docker-资源限制/">Docker 资源限制</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/30/Docker-资源限制/" class="archive-article-date">
-  	<time datetime="2018-06-30T13:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/30/Docker-资源限制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1040,15 +998,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skill</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1064,11 +1026,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+                <a href="javascript:void(0)" class="js-tag color1">basis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">message</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">message queue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lopper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
             
             <div class="clearfix"></div>

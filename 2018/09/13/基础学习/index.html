@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://inrush.me">
-  <title>Docker 基础学习之Dockerfile | inRush</title>
+  <title>基础学习 | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命令 FROM: 指定 Base image 1FROM centos  LABEL: 类似于注释 1LABEL version = &quot;1.0&quot;  RUN: 执行命令并创建新的Image Layer 12RUN yum update &amp;amp;&amp;amp; yum install -y vim \python-dev    #反斜杠表示换行  WORKDIR: 切换镜像内的工作目录 (类似于cd命令">
-<meta name="keywords" content="docker">
+  <meta name="description" content="将物理地址转换为 IP 地址的协议是：地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。地址解析协议是根据IP地址获取物理地址的协议，而反向地址转换协议（RARP）是局域网的物理机器从网关服务器的ARP表或者缓存上根据MAC地址请求IP地址的协议，其功能与地址解析协议相反。   ARP 协议解析">
+<meta name="keywords" content="basis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker 基础学习之Dockerfile">
-<meta property="og:url" content="http://inrush.me/2018/06/30/Docker-基础学习之Dockerfile/index.html">
+<meta property="og:title" content="基础学习">
+<meta property="og:url" content="http://inrush.me/2018/09/13/基础学习/index.html">
 <meta property="og:site_name" content="inRush">
-<meta property="og:description" content="命令 FROM: 指定 Base image 1FROM centos  LABEL: 类似于注释 1LABEL version = &quot;1.0&quot;  RUN: 执行命令并创建新的Image Layer 12RUN yum update &amp;amp;&amp;amp; yum install -y vim \python-dev    #反斜杠表示换行  WORKDIR: 切换镜像内的工作目录 (类似于cd命令">
-<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB71cf902569c74313a831265c1b49988e?method=download&shareKey=2ed1674b1120fd3240b96e0fd9674eba">
-<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBc7c1758a4fc639de69a011a8975be9bc?method=download&shareKey=d8fcc7ab01b30dc2820387b2d36ce158">
-<meta property="og:updated_time" content="2018-07-01T01:36:09.000Z">
+<meta property="og:description" content="将物理地址转换为 IP 地址的协议是：地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。地址解析协议是根据IP地址获取物理地址的协议，而反向地址转换协议（RARP）是局域网的物理机器从网关服务器的ARP表或者缓存上根据MAC地址请求IP地址的协议，其功能与地址解析协议相反。   ARP 协议解析">
+<meta property="og:updated_time" content="2018-09-13T03:59:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker 基础学习之Dockerfile">
-<meta name="twitter:description" content="命令 FROM: 指定 Base image 1FROM centos  LABEL: 类似于注释 1LABEL version = &quot;1.0&quot;  RUN: 执行命令并创建新的Image Layer 12RUN yum update &amp;amp;&amp;amp; yum install -y vim \python-dev    #反斜杠表示换行  WORKDIR: 切换镜像内的工作目录 (类似于cd命令">
-<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB71cf902569c74313a831265c1b49988e?method=download&shareKey=2ed1674b1120fd3240b96e0fd9674eba">
+<meta name="twitter:title" content="基础学习">
+<meta name="twitter:description" content="将物理地址转换为 IP 地址的协议是：地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。地址解析协议是根据IP地址获取物理地址的协议，而反向地址转换协议（RARP）是局域网的物理机器从网关服务器的ARP表或者缓存上根据MAC地址请求IP地址的协议，其功能与地址解析协议相反。   ARP 协议解析">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -180,97 +177,33 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker-基础学习之Dockerfile" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-基础学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Docker 基础学习之Dockerfile
+      基础学习
     </h1>
   
 
         
-        <a href="/2018/06/30/Docker-基础学习之Dockerfile/" class="archive-article-date">
-  	<time datetime="2018-06-30T12:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
+        <a href="/2018/09/13/基础学习/" class="archive-article-date">
+  	<time datetime="2018-09-13T02:33:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
-<li><p><strong>FROM</strong>: 指定 Base image</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> centos</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>LABEL</strong>: 类似于注释</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LABEL</span><span class="bash"> version = <span class="string">"1.0"</span></span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>RUN</strong>: 执行命令并创建新的Image Layer</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span><span class="bash"> yum update &amp;&amp; yum install -y vim \</span></div><div class="line">python-dev    <span class="comment">#反斜杠表示换行</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>WORKDIR</strong>: 切换镜像内的工作目录 (类似于cd命令,不要用RUN cd)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root  <span class="comment">#最好使用绝对目录,避免一些不必要的麻烦</span></span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>ADD</strong>: 添加文件到镜像中去 (会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD</span><span class="bash"> hello.sh</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>COPY</strong>: 添加文件到镜像中去 (不会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">COPY</span><span class="bash"> hello.sh</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>ENV</strong>: 设置环境变量</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></div><div class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y mysql-server=<span class="string">"<span class="variable">$&#123;MYSQL_VERSION&#125;</span>"</span> </span></div><div class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><strong>CMD</strong>: 设置容器启动后默认执行的命令和参数<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span> </span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"param1"</span>,<span class="string">"param2"</span>] <span class="comment">#这两个参数提供给entrypoint作为默认参数,详情请看下面的***ENTRYPOINT***</span></span></div></pre></td></tr></table></figure>
-</li>
-</ul>
+        <ol>
+<li><strong>将物理地址转换为 IP 地址的协议是</strong>：地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。地址解析协议是根据IP地址获取物理地址的协议，而反向地址转换协议（RARP）是局域网的物理机器从网关服务器的ARP表或者缓存上根据MAC地址请求IP地址的协议，其功能与地址解析协议相反。</li>
+</ol>
 <blockquote>
-<ol>
-<li>为容器提供默认的执行命令,包括默认的ENTRYPOINT参数 </li>
-<li>如果docker指定了其他的命令,CMD命令会被忽略.</li>
-<li>如果定义了多个CMD,只有最后一个会被执行.</li>
-</ol>
-<p><strong>示例</strong>: \<br><img src="https://note.youdao.com/yws/api/personal/file/WEB71cf902569c74313a831265c1b49988e?method=download&amp;shareKey=2ed1674b1120fd3240b96e0fd9674eba" alt="image"></p>
+<p><a href="https://blog.csdn.net/windeal3203/article/details/50672643" target="_blank" rel="external">ARP 协议解析</a></p>
 </blockquote>
-<ul>
-<li><strong>ENTRYPOINT</strong>: 设置容器启动时运行的命令</li>
-</ul>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<ol>
-<li>让容器以应用程序或者服务的形式运行</li>
-<li>不会被忽略,一定会执行</li>
-<li>指令为 exec 模式时，如果run命令后面有参数，那么后面的全部都会作为entrypoint的参数。如果run后面没有额外的参数，但是cmd有，那么cmd的全部内容会作为entrypoint的参数 – example <strong>CMD</strong> [“param1”,”param2”]</li>
-<li>指令为 shell 模式时，会完全忽略命令行参数,包括CMD指定的默认参数</li>
-<li>显式的指定 –entrypoint 参数,可以覆盖原有的entrypoint</li>
-<li>写一个Shell作为entrypoint<br><img src="https://note.youdao.com/yws/api/personal/file/WEBc7c1758a4fc639de69a011a8975be9bc?method=download&amp;shareKey=d8fcc7ab01b30dc2820387b2d36ce158" alt="image"></li>
-</ol>
-</blockquote>
-<ul>
-<li><strong>VOLUME</strong></li>
-<li><strong>EXPOSE</strong></li>
-</ul>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><blockquote>
-<ol>
-<li>ADD 和 COPY 区别就是 ADD 不仅将文件放到指定的目录,还会进行解压缩,而 COPY 只会将文件放到指定目录, 优先使用 COPY,因为 ADD 有解压功能,解压缩功能在 ADD 这个词中没有表现出来.</li>
-<li>添加远程文件使用 curl 或 wget</li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="RUN-CMD-ENTRYPOINT-的两种模式"><a href="#RUN-CMD-ENTRYPOINT-的两种模式" class="headerlink" title="RUN, CMD, ENTRYPOINT 的两种模式"></a>RUN, CMD, ENTRYPOINT 的两种模式</h2><ul>
-<li><p><strong>Shell</strong></p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y vim </span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span> </span></div><div class="line">ECTRYPOINT** echo <span class="string">"hello docker"</span> </div><div class="line">&gt; 默认是在 <span class="keyword">Shell</span><span class="bash"> 环境中运行,执行的命令是在/bin/bash中运行</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Exec</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;apt-get&quot;, &quot;install&quot;, &quot;-y&quot;, &quot;vim&quot;] \</div><div class="line">CMD [&quot;echo&quot; &quot;hello docker&quot;] \</div><div class="line">ECTRYPOINT** [&quot;echo&quot;, &quot;hello docker&quot;] \</div><div class="line">&gt; 不在 Shell 环境中执行,只是单纯执行了 echo ,如果要使执行的命令是在 /bin/bash 中运行,需要写成[&quot;/bin/bash&quot; ,&quot;-c&quot;,&quot;需要执行的命令&quot;]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** [<span class="string">"/bin/echo"</span>,<span class="string">"hello <span class="variable">$name</span>"</span>] </span></div><div class="line">&gt; 输出: hello $name</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** <span class="built_in">echo</span> <span class="string">"hello <span class="variable">$name</span>"</span> </span></div><div class="line">&gt; 输出: hello Docker</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** [<span class="string">"/bin/bash"</span> ,<span class="string">"-c"</span>,<span class="string">"echo hello <span class="variable">$name</span>"</span>] </span></div><div class="line">&gt; 输出: hello Docker</div></pre></td></tr></table></figure>
-<h2 id="gt-CMD-命令也是一样的效果"><a href="#gt-CMD-命令也是一样的效果" class="headerlink" title="&gt; CMD 命令也是一样的效果"></a>&gt; CMD 命令也是一样的效果</h2>
+
       
 
       
@@ -304,7 +237,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basis</a>
         		</li>
       		
 		</ul>
@@ -316,7 +249,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        			<a href="/categories/Interview/" class="article-tag-list-link color5">Interview</a>
         		</li>
       		
 		</ul>
@@ -371,7 +304,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/06/30/Docker-基础学习之Dockerfile/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://inrush.me/2018/09/13/基础学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -385,18 +318,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/06/30/Docker练习示例-一/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/13/Android-Handler-消息机制/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Docker练习示例(一)
+          Android Handler 消息机制
         
       </div>
     </a>
   
   
-    <a href="/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PHP和Nginx组合,页面发送Ajax请求出现502</div>
+    <a href="/2018/07/05/Android NDK 学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android NDK 学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -464,7 +397,7 @@ const myTheme = {
 }
 
 var gitment = new Gitment({
-  id: "Docker-基础学习之Dockerfile", // 可选。默认为 location.href
+  id: "基础学习", // 可选。默认为 location.href
   owner: "inRush",
   repo: "inRush.github.io",
   oauth: {
