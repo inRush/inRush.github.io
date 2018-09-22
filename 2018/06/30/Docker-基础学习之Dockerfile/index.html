@@ -205,27 +205,27 @@ var _hmt = _hmt || [];
 <figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> centos</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>LABEL</strong>: 类似于注释</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LABEL</span><span class="bash"> version = <span class="string">"1.0"</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LABEL</span> version = "1.0"</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>RUN</strong>: 执行命令并创建新的Image Layer</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span><span class="bash"> yum update &amp;&amp; yum install -y vim \</span></div><div class="line">python-dev    <span class="comment">#反斜杠表示换行</span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span> yum update &amp;&amp; yum install -y vim \</div><div class="line">python-dev    #反斜杠表示换行</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>WORKDIR</strong>: 切换镜像内的工作目录 (类似于cd命令,不要用RUN cd)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root  <span class="comment">#最好使用绝对目录,避免一些不必要的麻烦</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">WORKDIR</span> /root  #最好使用绝对目录,避免一些不必要的麻烦</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>ADD</strong>: 添加文件到镜像中去 (会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD</span><span class="bash"> hello.sh</span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD</span> hello.sh</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>COPY</strong>: 添加文件到镜像中去 (不会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">COPY</span><span class="bash"> hello.sh</span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">COPY</span> hello.sh</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>ENV</strong>: 设置环境变量</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></div><div class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y mysql-server=<span class="string">"<span class="variable">$&#123;MYSQL_VERSION&#125;</span>"</span> </span></div><div class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></div><div class="line"><span class="keyword">RUN</span> apt-get install -y mysql-server="$&#123;MYSQL_VERSION&#125;" </div><div class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <a id="more"></a>
 <ul>
-<li><strong>CMD</strong>: 设置容器启动后默认执行的命令和参数<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span> </span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"param1"</span>,<span class="string">"param2"</span>] <span class="comment">#这两个参数提供给entrypoint作为默认参数,详情请看下面的***ENTRYPOINT***</span></span></div></pre></td></tr></table></figure>
+<li><strong>CMD</strong>: 设置容器启动后默认执行的命令和参数<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CMD</span> echo "hello docker" </div><div class="line"><span class="keyword">CMD</span> ["param1","param2"] #这两个参数提供给entrypoint作为默认参数,详情请看下面的***ENTRYPOINT***</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
 <ul>
 <li><strong>ENTRYPOINT</strong>: 设置容器启动时运行的命令</li>
 </ul>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENTRYPOINT</span> echo "hello docker"</div></pre></td></tr></table></figure>
 <blockquote>
 <ol>
 <li>让容器以应用程序或者服务的形式运行</li>
@@ -263,13 +263,13 @@ var _hmt = _hmt || [];
 <hr>
 <h2 id="RUN-CMD-ENTRYPOINT-的两种模式"><a href="#RUN-CMD-ENTRYPOINT-的两种模式" class="headerlink" title="RUN, CMD, ENTRYPOINT 的两种模式"></a>RUN, CMD, ENTRYPOINT 的两种模式</h2><ul>
 <li><p><strong>Shell</strong></p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y vim </span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"hello docker"</span> </span></div><div class="line">ECTRYPOINT** echo <span class="string">"hello docker"</span> </div><div class="line">&gt; 默认是在 <span class="keyword">Shell</span><span class="bash"> 环境中运行,执行的命令是在/bin/bash中运行</span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span> apt-get install -y vim </div><div class="line"><span class="keyword">CMD</span> echo "hello docker" </div><div class="line">ECTRYPOINT** echo <span class="string">"hello docker"</span> </div><div class="line">&gt; 默认是在 <span class="keyword">Shell</span> 环境中运行,执行的命令是在/bin/bash中运行</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Exec</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;apt-get&quot;, &quot;install&quot;, &quot;-y&quot;, &quot;vim&quot;] \</div><div class="line">CMD [&quot;echo&quot; &quot;hello docker&quot;] \</div><div class="line">ECTRYPOINT** [&quot;echo&quot;, &quot;hello docker&quot;] \</div><div class="line">&gt; 不在 Shell 环境中执行,只是单纯执行了 echo ,如果要使执行的命令是在 /bin/bash 中运行,需要写成[&quot;/bin/bash&quot; ,&quot;-c&quot;,&quot;需要执行的命令&quot;]</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** [<span class="string">"/bin/echo"</span>,<span class="string">"hello <span class="variable">$name</span>"</span>] </span></div><div class="line">&gt; 输出: hello $name</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** <span class="built_in">echo</span> <span class="string">"hello <span class="variable">$name</span>"</span> </span></div><div class="line">&gt; 输出: hello Docker</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span><span class="bash">** [<span class="string">"/bin/bash"</span> ,<span class="string">"-c"</span>,<span class="string">"echo hello <span class="variable">$name</span>"</span>] </span></div><div class="line">&gt; 输出: hello Docker</div></pre></td></tr></table></figure>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span>** ["/bin/echo","hello $name"] </div><div class="line">&gt; 输出: hello $name</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span>** echo "hello $name" </div><div class="line">&gt; 输出: hello Docker</div><div class="line"></div><div class="line"><span class="keyword">FROM</span> scratch </div><div class="line"><span class="keyword">ENV</span> name Docker </div><div class="line"><span class="keyword">ENTRYPOINT</span>** ["/bin/bash" ,"-c","echo hello $name"] </div><div class="line">&gt; 输出: hello Docker</div></pre></td></tr></table></figure>
 <h2 id="gt-CMD-命令也是一样的效果"><a href="#gt-CMD-命令也是一样的效果" class="headerlink" title="&gt; CMD 命令也是一样的效果"></a>&gt; CMD 命令也是一样的效果</h2>
       
 
@@ -579,7 +579,15 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,15 +595,11 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,7 +615,7 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,23 +623,7 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">message</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">message queue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lopper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
               </li>
             
             <div class="clearfix"></div>
