@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="AsyncTask-的使用"><a href="#AsyncTask-的使用" class="headerlink" title="AsyncTask 的使用"></a>AsyncTask 的使用</h2><p>首先定义一个Class，继承AsyncTask<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncTaskDemo</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Integer</span>, <span class="title">String</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"AsyncTask"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPreExecute();</div><div class="line">        Log.d(TAG, <span class="string">"onPreExecute: 任务开始了"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... values)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onProgressUpdate(values);</div><div class="line">        Log.d(TAG, <span class="string">"onProgressUpdate: 当前进度: "</span> + String.valueOf(values[<span class="number">0</span>]));</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">doInBackground</span><span class="params">(Void... voids)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i += <span class="number">10</span>) &#123;</div><div class="line">            publishProgress(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">"完成了"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPostExecute(s);</div><div class="line">        Log.d(TAG, <span class="string">"onPostExecute: "</span> + s);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用的时候也很简单，只要new一个出来，然后使用execute就好了，</span></div><div class="line"><span class="comment">// 其中execute接收一个参数列表，接收在AsyncTask定义的传入参数类型的多个参数</span></div><div class="line"><span class="comment">// 在doInBackground中接收的参数其实就是一个数组，循环遍历就好了</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">runTask</span><span class="params">()</span> </span>&#123;</div><div class="line">    AsyncTaskDemo demo = <span class="keyword">new</span> AsyncTaskDemo();</div><div class="line">    demo.execute();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>运行结果：<br><img src="http://qiniu.inrush.me/2018-09-17-15371465636817.jpg" alt=""><br>
+<p>运行结果：<br><img src="http://qiniu.inrush.cn/2018-09-17-15371465636817.jpg" alt=""><br>
         
       
 
@@ -265,7 +265,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="子线程使用-Handler"><a href="#子线程使用-Handler" class="headerlink" title="子线程使用 Handler"></a>子线程使用 Handler</h2><p>因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的<br><img src="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg" alt=""><br>
+        <h2 id="子线程使用-Handler"><a href="#子线程使用-Handler" class="headerlink" title="子线程使用 Handler"></a>子线程使用 Handler</h2><p>因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的<br><img src="http://qiniu.inrush.cn/2018-09-13-15368412514745.jpg" alt=""><br>
         
       
 
@@ -994,15 +994,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1010,7 +1010,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1039,6 +1039,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,13 +15,13 @@
 <meta property="og:url" content="http://inrush.me/2018/09/13/Android-Handler-消息机制/index.html">
 <meta property="og:site_name" content="inRush">
 <meta property="og:description" content="子线程使用 Handler因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的">
-<meta property="og:image" content="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg">
-<meta property="og:image" content="http://qiniu.inrush.me/2018-09-16-Handler消息机制流程.png">
-<meta property="og:updated_time" content="2018-09-16T12:22:24.000Z">
+<meta property="og:image" content="http://qiniu.inrush.cn/2018-09-13-15368412514745.jpg">
+<meta property="og:image" content="http://qiniu.inrush.cn/2018-09-16-Handler消息机制流程.png">
+<meta property="og:updated_time" content="2018-10-09T13:24:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Handler 消息机制">
 <meta name="twitter:description" content="子线程使用 Handler因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的">
-<meta name="twitter:image" content="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg">
+<meta name="twitter:image" content="http://qiniu.inrush.cn/2018-09-13-15368412514745.jpg">
   
     <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
   
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="子线程使用-Handler"><a href="#子线程使用-Handler" class="headerlink" title="子线程使用 Handler"></a>子线程使用 Handler</h2><p>因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的<br><img src="http://qiniu.inrush.me/2018-09-13-15368412514745.jpg" alt=""><br><a id="more"></a></p>
+        <h2 id="子线程使用-Handler"><a href="#子线程使用-Handler" class="headerlink" title="子线程使用 Handler"></a>子线程使用 Handler</h2><p>因为子进程默认是没有Looper的，所以需要进行Looper的初始化，而主进程是默认有Looper的<br><img src="http://qiniu.inrush.cn/2018-09-13-15368412514745.jpg" alt=""><br><a id="more"></a></p>
 <h3 id="1-Looper-prepare"><a href="#1-Looper-prepare" class="headerlink" title="1. Looper.prepare();"></a>1. Looper.prepare();</h3><p>其中主要做了以下的事情：</p>
 <ul>
 <li>初始化一个Looper</li>
@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
 <li>调用MessageQueue的enqueueMessage方法，将Message与Handler绑定，并把Message插入MessageQueue中。<br>主要代码：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">sendMessageAtTime</span><span class="params">(Message msg, <span class="keyword">long</span> uptimeMillis)</span> </span>&#123;</div><div class="line">    MessageQueue queue = mQueue;</div><div class="line">    <span class="keyword">return</span> enqueueMessage(queue, msg, uptimeMillis);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">enqueueMessage</span><span class="params">(MessageQueue queue, Message msg, <span class="keyword">long</span> uptimeMillis)</span> </span>&#123;</div><div class="line">    <span class="comment">// 将msg与Handler进行绑定</span></div><div class="line">    msg.target = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">if</span> (mAsynchronous) &#123;</div><div class="line">        msg.setAsynchronous(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 加入消息队列中</span></div><div class="line">    <span class="keyword">return</span> queue.enqueueMessage(msg, uptimeMillis);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="5-整个消息流程解析"><a href="#5-整个消息流程解析" class="headerlink" title="5. 整个消息流程解析"></a>5. 整个消息流程解析</h3><p><img src="http://qiniu.inrush.me/2018-09-16-Handler消息机制流程.png" alt="Handler消息机制流程"></p>
+<h3 id="5-整个消息流程解析"><a href="#5-整个消息流程解析" class="headerlink" title="5. 整个消息流程解析"></a>5. 整个消息流程解析</h3><p><img src="http://qiniu.inrush.cn/2018-09-16-Handler消息机制流程.png" alt="Handler消息机制流程"></p>
 <h4 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h4><ul>
 <li><strong>MessageQueue.enqueueMessage()</strong></li>
 <li><strong>MessageQueue.next()</strong></li>
@@ -538,15 +538,15 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +554,7 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,6 +583,10 @@ gitment.render('comments-container');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>
