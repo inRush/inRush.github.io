@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://inrush.cn">
   <title>慕课网音乐APP | inRush</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="http://inrush.cn/2017/06/15/慕课网音乐APP/index.html">
 <meta property="og:site_name" content="inRush">
 <meta property="og:description" content="最近,慕课网又出了一门新的vue课程,是做一个音乐的webapp,看了那个课程的简介以后,看着那效果,真的很像原生的了,效果很好,不愧是滴滴D8工程师啊,那个视频是一个滴滴公司的一个D8工程师做的,之前看了他的饿了么视频以后,觉得他真的很赞,之前的饿了么的那个课程就很多人买了,现在的这门课才出没有多久,就有三百多个人买了,可见他的课有多吸引人😍,好了,废话不多说,今天就开始学他的这门课程了">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-06-15T15:31:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="慕课网音乐APP">
@@ -60,7 +61,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -356,8 +357,23 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="comments-container" class="comments"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+
+  
+  <style>
+#comments{
+  background: #fff;
+  margin: 0 30px !important;
+  padding: 20px 20px !important;
+  border-radius: 12px;
+  transition: all 0.2s ease-in;
+  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+</style>
+  
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <style>
 .comments{
   background: #fff;
@@ -381,50 +397,22 @@ var _hmt = _hmt || [];
   border-radius: 3px;
 }
 </style>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-const myTheme = {
-  render(state, instance) {
-    const container = document.createElement('div')
-    container.lang = "en-US"
-    // container.className = 'gitment-container gitment-root-container'
-
-     // your custom component
-    container.appendChild(instance.renderSomething(state, instance))
-
-    container.appendChild(instance.renderHeader(state, instance))
-    container.appendChild(instance.renderEditor(state, instance))
-    container.appendChild(instance.renderComments(state, instance))
-    container.appendChild(instance.renderFooter(state, instance))
-    return container
-  },
-  renderSomething(state, instance) {
-    const container = document.createElement('div')
-    container.lang = "en-US"
-    if (state.user.login) {
-      container.innerText = `Hello, ${state.user.login}`
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "mmmIH8Hi2Oeq3xAOJbACUjn4-gzGzoHsz",
+            app_key: "ReFh6madWBsFMyMGx2Rvbf9a",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
     }
-    return container
-  }
-}
-
-var gitment = new Gitment({
-  id: "慕课网音乐APP", // 可选。默认为 location.href
-  owner: "inRush",
-  repo: "inRush.github.io",
-  oauth: {
-    client_id: "3bca99b248e249ddc97a",
-    client_secret: "01d0c0f19210b3eb67ce631776d4052e96fdbecd",
-  },
-  theme: myTheme
-})
-gitment.render('comments-container');
-
-// gitment.render(document.body);
-
 </script>
-  
-
+    </section>
   
 
   
@@ -437,7 +425,7 @@ gitment.render('comments-container');
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 inRush
+    		&copy; 2020 inRush
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -528,15 +516,11 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,11 +528,15 @@ gitment.render('comments-container');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,6 +561,10 @@ gitment.render('comments-container');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">basis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
               </li>
             
             <div class="clearfix"></div>
