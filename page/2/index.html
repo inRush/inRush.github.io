@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://inrush.cn">
-  <title>inRush</title>
+  <title>我的个人日记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="inRush">
+<meta property="og:title" content="我的个人日记本">
 <meta property="og:url" content="http://inrush.cn/page/2/index.html">
-<meta property="og:site_name" content="inRush">
+<meta property="og:site_name" content="我的个人日记本">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="inRush">
+<meta name="twitter:title" content="我的个人日记本">
   
-    <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="我的个人日记本" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inRush</a></h1>
+		  <h1 class="header-author"><a href="/">我的个人日记本</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">沉迷学习,日渐消瘦</p>
@@ -125,7 +125,7 @@ var _hmt = _hmt || [];
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inRush</h1>
+			  <h1 class="header-author js-header-author">我的个人日记本</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>沉迷学习,日渐消瘦<i class="icon icon-quo-right"></i></p>
@@ -175,6 +175,78 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Docker错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/01/Docker错误/">Docker错误</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/01/Docker错误/" class="archive-article-date">
+  	<time datetime="2018-07-01T01:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="未解决"><a href="#未解决" class="headerlink" title="未解决"></a>未解决</h3><h5 id="1-Cannot-connect-to-the-Docker-daemon-at-unix-var-run-docker-sock-Is-the-docker-daemon-running"><a href="#1-Cannot-connect-to-the-Docker-daemon-at-unix-var-run-docker-sock-Is-the-docker-daemon-running" class="headerlink" title="1. Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"></a>1. Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</h5><blockquote>
+<p><strong>产生原因</strong>: 为了给服务器装 Google 的 BBR,把内核给升级了,然后升级完,重启主机以后,Docker 就无法启动了.\<br><strong>当时采取措施</strong>: 升级内核之前,设置了快照,所以回滚了磁盘.\<br><strong>猜测</strong>: 内核升级,导致Docker无法运行</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Server/" class="article-tag-list-link color2">Server</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/01/Docker错误/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-搭建一个私有的-Docker-Registry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -197,10 +269,12 @@ var _hmt = _hmt || [];
       
         <blockquote>
 <p><em>提供一个内部访问的DockerHub</em></p>
+</blockquote>
+<blockquote>
 <p><em>在一个有docker的主机上创建并运行一个registry的容器,该容器相当于一个web服务器,<strong>但是没有web界面</strong>,该主机你必须能访问. 注意: 该主机不是你当前使用的主机,是另外一台主机</em></p>
 </blockquote>
-<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><h5 id="1-在主机上-不是本地自己的机器-是用来存储registry的机器"><a href="#1-在主机上-不是本地自己的机器-是用来存储registry的机器" class="headerlink" title="1. 在主机上,不是本地自己的机器,是用来存储registry的机器"></a>1. 在主机上,不是本地自己的机器,是用来存储registry的机器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> docker run -d -p 5000:5000 --restart always --name registry registry:2</span></div></pre></td></tr></table></figure>
-<h5 id="2-在你的机器上"><a href="#2-在你的机器上" class="headerlink" title="2. 在你的机器上"></a>2. 在你的机器上</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> docker build -t 10.75.44.222:5000/hello-world // 这里的IP是运行了registry的linux主机的IP,端口就是registry运行绑定的端口,</span></div><div class="line">后面的名字就是你自定义镜像的名字,</div><div class="line"><span class="meta">$</span><span class="bash"> docker push 10.75.44.222:5000/hello-world</span></div></pre></td></tr></table></figure>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><h5 id="1-在主机上-不是本地自己的机器-是用来存储registry的机器"><a href="#1-在主机上-不是本地自己的机器-是用来存储registry的机器" class="headerlink" title="1. 在主机上,不是本地自己的机器,是用来存储registry的机器"></a>1. 在主机上,不是本地自己的机器,是用来存储registry的机器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -d -p 5000:5000 --restart always --name registry registry:2</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-在你的机器上"><a href="#2-在你的机器上" class="headerlink" title="2. 在你的机器上"></a>2. 在你的机器上</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build -t 10.75.44.222:5000/hello-world // 这里的IP是运行了registry的linux主机的IP,端口就是registry运行绑定的端口,</span></span><br><span class="line">后面的名字就是你自定义镜像的名字,</span><br><span class="line"><span class="meta">$</span><span class="bash"> docker push 10.75.44.222:5000/hello-world</span></span><br></pre></td></tr></table></figure>
         
       
 
@@ -270,9 +344,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="1-批量删除-none-Image"><a href="#1-批量删除-none-Image" class="headerlink" title="1. 批量删除 none Image"></a>1. 批量删除 none Image</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rmi $(docker images | grep &quot;none&quot; | awk &apos;&#123;print $3&#125;&apos;)</div></pre></td></tr></table></figure>
-<h5 id="2-批量删除-Container"><a href="#2-批量删除-Container" class="headerlink" title="2. 批量删除 Container"></a>2. 批量删除 Container</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker rm $(docker ps -aq)</div></pre></td></tr></table></figure>
-<h5 id="3-使用运行中的容器执行命令"><a href="#3-使用运行中的容器执行命令" class="headerlink" title="3. 使用运行中的容器执行命令"></a>3. 使用运行中的容器执行命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker exec 容器ID或Name 需要执行的命令</div></pre></td></tr></table></figure>
+        <h5 id="1-批量删除-none-Image"><a href="#1-批量删除-none-Image" class="headerlink" title="1. 批量删除 none Image"></a>1. 批量删除 none Image</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker rmi $(docker images | grep &quot;none&quot; | awk &apos;&#123;print $3&#125;&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="2-批量删除-Container"><a href="#2-批量删除-Container" class="headerlink" title="2. 批量删除 Container"></a>2. 批量删除 Container</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker rm $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+<h5 id="3-使用运行中的容器执行命令"><a href="#3-使用运行中的容器执行命令" class="headerlink" title="3. 使用运行中的容器执行命令"></a>3. 使用运行中的容器执行命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker exec 容器ID或Name 需要执行的命令</span><br></pre></td></tr></table></figure>
         
       
 
@@ -342,8 +416,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span> --memory 200M 15c336f15d45 # total memory = 400M</div></pre></td></tr></table></figure>
+        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-m, --memory bytes</span><br><span class="line">    --memory-swap bytes</span><br></pre></td></tr></table></figure>
+<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br>
         
@@ -418,7 +492,7 @@ var _hmt = _hmt || [];
         <blockquote>
 <p><strong>前提概要:</strong><br>以预先安装好Python2.7环境的Image为BaseImage,创建一个运行Flask Web的Image</p>
 </blockquote>
-<h5 id="1-编写Python文件"><a href="#1-编写Python文件" class="headerlink" title="1. 编写Python文件"></a>1. 编写Python文件</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"hello docker"</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>;</div><div class="line">    app.run();</div></pre></td></tr></table></figure>
+<h5 id="1-编写Python文件"><a href="#1-编写Python文件" class="headerlink" title="1. 编写Python文件"></a>1. 编写Python文件</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello docker"</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>;</span><br><span class="line">    app.run();</span><br></pre></td></tr></table></figure>
         
       
 
@@ -490,25 +564,25 @@ var _hmt = _hmt || [];
       
         <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
 <li><p><strong>FROM</strong>: 指定 Base image</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> centos</div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>LABEL</strong>: 类似于注释</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">LABEL</span> version = "1.0"</div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="bash"> version = <span class="string">"1.0"</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>RUN</strong>: 执行命令并创建新的Image Layer</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RUN</span> yum update &amp;&amp; yum install -y vim \</div><div class="line">python-dev    #反斜杠表示换行</div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> yum update &amp;&amp; yum install -y vim \</span></span><br><span class="line"><span class="bash">python-dev    <span class="comment">#反斜杠表示换行</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>WORKDIR</strong>: 切换镜像内的工作目录 (类似于cd命令,不要用RUN cd)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">WORKDIR</span> /root  #最好使用绝对目录,避免一些不必要的麻烦</div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root  <span class="comment">#最好使用绝对目录,避免一些不必要的麻烦</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>ADD</strong>: 添加文件到镜像中去 (会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ADD</span> hello.sh</div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ADD</span><span class="bash"> hello.sh</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>COPY</strong>: 添加文件到镜像中去 (不会进行解压)</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">COPY</span> hello.sh</div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="bash"> hello.sh</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>ENV</strong>: 设置环境变量</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></div><div class="line"><span class="keyword">RUN</span> apt-get install -y mysql-server="$&#123;MYSQL_VERSION&#125;" </div><div class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></div></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment">#设置常量 </span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y mysql-server=<span class="string">"<span class="variable">$&#123;MYSQL_VERSION&#125;</span>"</span> </span></span><br><span class="line">&amp;&amp; rm -rf /var/lib/apt/lists/* <span class="comment">#引用常量</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
         
@@ -583,7 +657,7 @@ var _hmt = _hmt || [];
         <blockquote>
 <p>&emsp;&emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.</p>
 </blockquote>
-<p>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="external">这里</a>找到了,添加了下面的四句到nginx.conf</p>
+<p>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="noopener">这里</a>找到了,添加了下面的四句到nginx.conf</p>
 <blockquote>
 <p>fastcgi_temp_file_write_size 10m;<br>fastcgi_busy_buffers_size 512k;<br>fastcgi_buffer_size 512k;<br>fastcgi_buffers 16 512k;</p>
 </blockquote>
@@ -906,7 +980,8 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 inRush
+    		&copy; 2022 我的个人日记本
+				<a href="https://beian.miit.gov.cn/">浙ICP备17044324号</a>
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -977,6 +1052,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -997,11 +1076,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1010,18 +1089,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1037,15 +1104,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">basis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">backend</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
             
             <div class="clearfix"></div>

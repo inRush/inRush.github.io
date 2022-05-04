@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://inrush.cn">
-  <title>Docker 资源限制 | inRush</title>
+  <title>Docker 资源限制 | 我的个人日记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker 资源限制">
 <meta property="og:url" content="http://inrush.cn/2018/06/30/Docker-资源限制/index.html">
-<meta property="og:site_name" content="inRush">
+<meta property="og:site_name" content="我的个人日记本">
 <meta property="og:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-06-30T13:29:12.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Docker 资源限制">
 <meta name="twitter:description" content="1. 限定 memory and swap memory12-m, --memory bytes    --memory-swap bytes example:1$docker run --memory 200M 15c336f15d45 # total memory = 400M  Container Total Memory = memory + swap memory \如果限定了Memor">
   
-    <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="我的个人日记本" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -74,7 +74,7 @@ var _hmt = _hmt || [];
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inRush</a></h1>
+		  <h1 class="header-author"><a href="/">我的个人日记本</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">沉迷学习,日渐消瘦</p>
@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inRush</h1>
+			  <h1 class="header-author js-header-author">我的个人日记本</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>沉迷学习,日渐消瘦<i class="icon icon-quo-right"></i></p>
@@ -198,12 +198,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-m, --memory bytes</div><div class="line">    --memory-swap bytes</div></pre></td></tr></table></figure>
-<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$docker <span class="keyword">run</span> --memory 200M 15c336f15d45 # total memory = 400M</div></pre></td></tr></table></figure>
+        <h3 id="1-限定-memory-and-swap-memory"><a href="#1-限定-memory-and-swap-memory" class="headerlink" title="1. 限定 memory and swap memory"></a>1. 限定 memory and swap memory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-m, --memory bytes</span><br><span class="line">    --memory-swap bytes</span><br></pre></td></tr></table></figure>
+<h5 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$docker <span class="keyword">run</span><span class="bash"> --memory 200M 15c336f15d45 <span class="comment"># total memory = 400M</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Container Total Memory = memory + swap memory \<br>如果限定了Memory 没有限定 Swap Memory ,Swap Memory 默认等于 Memory<br><a id="more"></a></p>
 </blockquote>
-<h3 id="2-限定CPU"><a href="#2-限定CPU" class="headerlink" title="2. 限定CPU"></a>2. 限定CPU</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-c, --cpu-shares int  [CPU shares (relative weight)]</div></pre></td></tr></table></figure>
+<h3 id="2-限定CPU"><a href="#2-限定CPU" class="headerlink" title="2. 限定CPU"></a>2. 限定CPU</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c, --cpu-shares int  [CPU shares (relative weight)]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>–cpu-shares 指定的CPU是占比多少 \<br>example: \<br>A –cpu-shares 5  # 设置占比5 \<br>B –cpu-shares 10  # 设置占比10 \<br>A cpu + B cpu = 100%  # A所占的CPU加上B所占的CPU等于全部CPU\<br>B cpu = A cpu * 2 ===&gt; 10 / 5 = 2 也就是B占的CPU总是A的两倍</p>
 </blockquote>
@@ -365,29 +365,7 @@ var _hmt = _hmt || [];
       <div id="vcomment" class="comment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<style>
-.comments{
-  background: #fff;
-  margin: 0 30px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: all 0.2s ease-in;
-  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-.mid-col.show .comments,
-.mid-col.show .gitment-comment-header,
-.mid-col.show .gitment-editor-body textarea{
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.gitment-comment-header{
-  padding: 5px;
-}
-.gitment-editor-footer button,
-.gitment-comment-main,
-.gitment-editor-main{
-  border-radius: 3px;
-}
-</style>
+
 <script>
    var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
@@ -416,7 +394,8 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 inRush
+    		&copy; 2022 我的个人日记本
+				<a href="https://beian.miit.gov.cn/">浙ICP备17044324号</a>
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -487,6 +466,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -507,11 +490,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,18 +503,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,15 +518,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">basis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">backend</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
             
             <div class="clearfix"></div>

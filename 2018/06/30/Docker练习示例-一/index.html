@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://inrush.cn">
-  <title>Docker练习示例(一) | inRush</title>
+  <title>Docker练习示例(一) | 我的个人日记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前提概要:以预先安装好Python2.7环境的Image为BaseImage,创建一个运行Flask Web的Image  1. 编写Python文件12345678from flask import Flaskapp = Flask(__name__)@app.route(&apos;/&apos;)def hello():    return &quot;hello docker&quot;if __name__ == &apos;__ma">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker练习示例(一)">
 <meta property="og:url" content="http://inrush.cn/2018/06/30/Docker练习示例-一/index.html">
-<meta property="og:site_name" content="inRush">
+<meta property="og:site_name" content="我的个人日记本">
 <meta property="og:description" content="前提概要:以预先安装好Python2.7环境的Image为BaseImage,创建一个运行Flask Web的Image  1. 编写Python文件12345678from flask import Flaskapp = Flask(__name__)@app.route(&apos;/&apos;)def hello():    return &quot;hello docker&quot;if __name__ == &apos;__ma">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBb51259121429dc7f46b82f60cfe9a86c?method=download&shareKey=7ce21acbcbd485f1b891a1776e6b923e">
@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="前提概要:以预先安装好Python2.7环境的Image为BaseImage,创建一个运行Flask Web的Image  1. 编写Python文件12345678from flask import Flaskapp = Flask(__name__)@app.route(&apos;/&apos;)def hello():    return &quot;hello docker&quot;if __name__ == &apos;__ma">
 <meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEBb51259121429dc7f46b82f60cfe9a86c?method=download&shareKey=7ce21acbcbd485f1b891a1776e6b923e">
   
-    <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="我的个人日记本" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inRush</a></h1>
+		  <h1 class="header-author"><a href="/">我的个人日记本</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">沉迷学习,日渐消瘦</p>
@@ -133,7 +133,7 @@ var _hmt = _hmt || [];
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inRush</h1>
+			  <h1 class="header-author js-header-author">我的个人日记本</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>沉迷学习,日渐消瘦<i class="icon icon-quo-right"></i></p>
@@ -204,19 +204,21 @@ var _hmt = _hmt || [];
         <blockquote>
 <p><strong>前提概要:</strong><br>以预先安装好Python2.7环境的Image为BaseImage,创建一个运行Flask Web的Image</p>
 </blockquote>
-<h5 id="1-编写Python文件"><a href="#1-编写Python文件" class="headerlink" title="1. 编写Python文件"></a>1. 编写Python文件</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"hello docker"</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>;</div><div class="line">    app.run();</div></pre></td></tr></table></figure>
+<h5 id="1-编写Python文件"><a href="#1-编写Python文件" class="headerlink" title="1. 编写Python文件"></a>1. 编写Python文件</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello docker"</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>;</span><br><span class="line">    app.run();</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h5 id="2-编写Dockerfile"><a href="#2-编写Dockerfile" class="headerlink" title="2. 编写Dockerfile"></a>2. 编写Dockerfile</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> python:<span class="number">2.7</span></div><div class="line"><span class="keyword">LABEL</span> maintainer="inRush&lt;1289110832@qq.com&gt;"</div><div class="line"><span class="keyword">RUN</span> pip install flask</div><div class="line"><span class="keyword">COPY</span> app.py /app</div><div class="line"><span class="keyword">WORKDIR</span> /app</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></div><div class="line"><span class="keyword">CMD</span> ["python","app.py"]</div></pre></td></tr></table></figure>
-<h5 id="3-执行命令"><a href="#3-执行命令" class="headerlink" title="3. 执行命令"></a>3. 执行命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker build -t inrush/flask-hello-world .</div></pre></td></tr></table></figure>
+<h5 id="2-编写Dockerfile"><a href="#2-编写Dockerfile" class="headerlink" title="2. 编写Dockerfile"></a>2. 编写Dockerfile</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">2.7</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> maintainer=<span class="string">"inRush&lt;1289110832@qq.com&gt;"</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install flask</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> app.py /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>,<span class="string">"app.py"</span>]</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-执行命令"><a href="#3-执行命令" class="headerlink" title="3. 执行命令"></a>3. 执行命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker build -t inrush/flask-hello-world .</span><br></pre></td></tr></table></figure>
 <h5 id="build失败-产生错误"><a href="#build失败-产生错误" class="headerlink" title="build失败,产生错误"></a>build失败,产生错误</h5><p><img src="https://note.youdao.com/yws/api/personal/file/WEBb51259121429dc7f46b82f60cfe9a86c?method=download&amp;shareKey=7ce21acbcbd485f1b891a1776e6b923e" alt="image"></p>
-<h5 id="排查"><a href="#排查" class="headerlink" title="排查:"></a>排查:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -it 86 /bin/bash # 以交互式进入容器</div></pre></td></tr></table></figure>
+<h5 id="排查"><a href="#排查" class="headerlink" title="排查:"></a>排查:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -it 86 /bin/bash # 以交互式进入容器</span><br></pre></td></tr></table></figure>
 <h5 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h5><blockquote>
 <p><img src="https://note.youdao.com/yws/api/personal/file/WEB7228a537a4a0af018896dd960592041c?method=download&amp;shareKey=314636fc4aa5336ec42d34e29c6c0a30" alt="image"> </p>
 </blockquote>
-<h5 id="查找Dockerfile-发现-COPY命令写的有问题-改为"><a href="#查找Dockerfile-发现-COPY命令写的有问题-改为" class="headerlink" title="查找Dockerfile,发现 COPY命令写的有问题,改为:"></a>查找Dockerfile,发现 COPY命令写的有问题,改为:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">FROM</span> python:<span class="number">2.7</span></div><div class="line"><span class="keyword">LABEL</span><span class="bash"> maintainer=<span class="string">"inRush&lt;1289110832@qq.com&gt;"</span></span></div><div class="line"><span class="keyword">RUN</span><span class="bash"> pip install flask</span></div><div class="line"><span class="keyword">COPY</span><span class="bash"> app.py /app</span></div><div class="line"><span class="keyword">WORKDIR</span><span class="bash"> /a</span></div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></div><div class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>,<span class="string">"app.py"</span>]</span></div></pre></td></tr></table></figure>
+<h5 id="查找Dockerfile-发现-COPY命令写的有问题-改为"><a href="#查找Dockerfile-发现-COPY命令写的有问题-改为" class="headerlink" title="查找Dockerfile,发现 COPY命令写的有问题,改为:"></a>查找Dockerfile,发现 COPY命令写的有问题,改为:</h5><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">2.7</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> maintainer=<span class="string">"inRush&lt;1289110832@qq.com&gt;"</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install flask</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> app.py /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /a</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>,<span class="string">"app.py"</span>]</span></span><br></pre></td></tr></table></figure>
 <p><strong>完成</strong> </p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>这次的练习虽然很简单,但是其中也是能综合了一下之前学的东西,把前面的东西巩固了一下,加深了印象. \<br>其中需要特别注意的就是Dockerfile中路径的编写,一定要认真检查过才行,不然一不小心就出现了上面的问题了,现在的这个问题可能还好查,要是遇到不好查的问题就糟糕了.所以要细心细心啊.</p>
+</blockquote>
+<blockquote>
 <p>该示例只是在容器中运行了Application,在外部并不能访问里面的5000端口,后续会继续修改.</p>
 </blockquote>
 
@@ -377,29 +379,7 @@ var _hmt = _hmt || [];
       <div id="vcomment" class="comment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<style>
-.comments{
-  background: #fff;
-  margin: 0 30px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: all 0.2s ease-in;
-  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-.mid-col.show .comments,
-.mid-col.show .gitment-comment-header,
-.mid-col.show .gitment-editor-body textarea{
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.gitment-comment-header{
-  padding: 5px;
-}
-.gitment-editor-footer button,
-.gitment-comment-main,
-.gitment-editor-main{
-  border-radius: 3px;
-}
-</style>
+
 <script>
    var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
@@ -428,7 +408,8 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 inRush
+    		&copy; 2022 我的个人日记本
+				<a href="https://beian.miit.gov.cn/">浙ICP备17044324号</a>
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -499,6 +480,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -519,11 +504,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,18 +517,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,15 +532,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">basis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">backend</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
             
             <div class="clearfix"></div>

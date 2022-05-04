@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://inrush.cn">
-  <title>PHP和Nginx组合,页面发送Ajax请求出现502 | inRush</title>
+  <title>PHP和Nginx组合,页面发送Ajax请求出现502 | 我的个人日记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.  &amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就">
 <meta name="keywords" content="php,nginx,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP和Nginx组合,页面发送Ajax请求出现502">
 <meta property="og:url" content="http://inrush.cn/2017/08/23/PHP和Nginx组合-页面发送Ajax请求出现502/index.html">
-<meta property="og:site_name" content="inRush">
+<meta property="og:site_name" content="我的个人日记本">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.  &amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-23T16:17:22.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="PHP和Nginx组合,页面发送Ajax请求出现502">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.  &amp;emsp;&amp;emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就">
   
-    <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="我的个人日记本" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -74,7 +74,7 @@ var _hmt = _hmt || [];
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inRush</a></h1>
+		  <h1 class="header-author"><a href="/">我的个人日记本</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">沉迷学习,日渐消瘦</p>
@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inRush</h1>
+			  <h1 class="header-author js-header-author">我的个人日记本</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>沉迷学习,日渐消瘦<i class="icon icon-quo-right"></i></p>
@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         <blockquote>
 <p>&emsp;&emsp;在最近的一个php项目中,使用了PHP+Nginx+Mysql的组合,在页面进行Ajax请求的时候,部分请求出现了502的情况.</p>
 </blockquote>
-<p>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="external">这里</a>找到了,添加了下面的四句到nginx.conf</p>
+<p>&emsp;&emsp;在经过PHP的调试以后,发现PHP是没有问题的,是能够正常的返回的,但是页面就是会显示502,那么问题很有可能是Nginx出现了问题了,因为对于Nginx还是新手,竟然没有想到要去看错误日志,后来想想当时真是蠢,所以就各种Google,各种尝试,各种失败,很郁闷,最后,功夫不负有心人,终于被我在<a href="https://ltq.im/laravel-nginx-app_debug-ajax-calls-502-bad-gateway.html" target="_blank" rel="noopener">这里</a>找到了,添加了下面的四句到nginx.conf</p>
 <blockquote>
 <p>fastcgi_temp_file_write_size 10m;<br>fastcgi_busy_buffers_size 512k;<br>fastcgi_buffer_size 512k;<br>fastcgi_buffers 16 512k;</p>
 </blockquote>
@@ -209,11 +209,11 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>可以是可以了,可是不知道为什么呀,那怎么行的呢,然后又各种Google</p>
 </blockquote>
-<p>&emsp;&emsp;哈哈,在<a href="https://blog.tanteng.me/2016/03/nginx-buffer-params/" target="_blank" rel="external">这里</a>找到了答案,这几句话,主要的意思就是设置 FastCGI Server 的 Response 在 Nginx 中的缓冲区的大小,我就想难道是相应的Response太大了,导致了nginx报502??,可是想想不对啊,我调试的时候有的Response比出现502的Response还大的呀,为什么就是这几个不行呢,然后就想到了查看nginx的错误日志(真特么傻,现在才想到😫,都怪自己的经验太少了),找到了/var/log/nginx/error.log这个文件,哎,果然,有一堆一堆的错误😀,主要是显示了下面的这个错误:</p>
+<p>&emsp;&emsp;哈哈,在<a href="https://blog.tanteng.me/2016/03/nginx-buffer-params/" target="_blank" rel="noopener">这里</a>找到了答案,这几句话,主要的意思就是设置 FastCGI Server 的 Response 在 Nginx 中的缓冲区的大小,我就想难道是相应的Response太大了,导致了nginx报502??,可是想想不对啊,我调试的时候有的Response比出现502的Response还大的呀,为什么就是这几个不行呢,然后就想到了查看nginx的错误日志(真特么傻,现在才想到😫,都怪自己的经验太少了),找到了/var/log/nginx/error.log这个文件,哎,果然,有一堆一堆的错误😀,主要是显示了下面的这个错误:</p>
 <blockquote>
 <p>upstream sent too big header while reading response header from upstream</p>
 </blockquote>
-<p>主要的意思就是上游的响应头太大了,哎,奇怪了🤔,响应头太大??,然后我就去浏览器上看了下那几个Ajax请求,果然,cookie超级长,怪不得,哇,真是坑爹啊,然后又根据这个问题Google了一番,哈哈哈,果然就是上面的那样,<a href="https://stackoverflow.com/questions/23844761/upstream-sent-too-big-header-while-reading-response-header-from-upstream" target="_blank" rel="external">戳这</a>☹️,不过,给出的解决方案只写了两条</p>
+<p>主要的意思就是上游的响应头太大了,哎,奇怪了🤔,响应头太大??,然后我就去浏览器上看了下那几个Ajax请求,果然,cookie超级长,怪不得,哇,真是坑爹啊,然后又根据这个问题Google了一番,哈哈哈,果然就是上面的那样,<a href="https://stackoverflow.com/questions/23844761/upstream-sent-too-big-header-while-reading-response-header-from-upstream" target="_blank" rel="noopener">戳这</a>☹️,不过,给出的解决方案只写了两条</p>
 <blockquote>
 <p>fastcgi_buffers<br>fastcgi_buffer_size</p>
 </blockquote>
@@ -384,29 +384,7 @@ var _hmt = _hmt || [];
       <div id="vcomment" class="comment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<style>
-.comments{
-  background: #fff;
-  margin: 0 30px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: all 0.2s ease-in;
-  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-.mid-col.show .comments,
-.mid-col.show .gitment-comment-header,
-.mid-col.show .gitment-editor-body textarea{
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.gitment-comment-header{
-  padding: 5px;
-}
-.gitment-editor-footer button,
-.gitment-comment-main,
-.gitment-editor-main{
-  border-radius: 3px;
-}
-</style>
+
 <script>
    var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
@@ -435,7 +413,8 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 inRush
+    		&copy; 2022 我的个人日记本
+				<a href="https://beian.miit.gov.cn/">浙ICP备17044324号</a>
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -506,6 +485,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -526,11 +509,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,18 +522,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +537,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">basis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">backend</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
             
             <div class="clearfix"></div>

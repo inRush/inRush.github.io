@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://inrush.cn">
-  <title>Android Bug 记录 | inRush</title>
+  <title>Android Bug 记录 | 我的个人日记本</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.在OnResume生命周期函数中无限循环,卡死 遇到 bug 过程:在一次写一个Common库的时候,写测试代码,测试Android 6.0权限请求,因为本来设计为没有权限的话,是不能进入APP的,是会自动强制跳转到手机的权限设置页面的,所以我选择了在 OnResume 这个生命周期函数里面进行请求权限,如果拒绝的话,就给填转到手机的设置页面,但是运行以后发现无法跳转,而将权限请求的方法放到其">
 <meta name="keywords" content="android,bug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Bug 记录">
 <meta property="og:url" content="http://inrush.cn/2018/07/01/Android-Bug-记录/index.html">
-<meta property="og:site_name" content="inRush">
+<meta property="og:site_name" content="我的个人日记本">
 <meta property="og:description" content="1.在OnResume生命周期函数中无限循环,卡死 遇到 bug 过程:在一次写一个Common库的时候,写测试代码,测试Android 6.0权限请求,因为本来设计为没有权限的话,是不能进入APP的,是会自动强制跳转到手机的权限设置页面的,所以我选择了在 OnResume 这个生命周期函数里面进行请求权限,如果拒绝的话,就给填转到手机的设置页面,但是运行以后发现无法跳转,而将权限请求的方法放到其">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-07-01T01:50:16.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Android Bug 记录">
 <meta name="twitter:description" content="1.在OnResume生命周期函数中无限循环,卡死 遇到 bug 过程:在一次写一个Common库的时候,写测试代码,测试Android 6.0权限请求,因为本来设计为没有权限的话,是不能进入APP的,是会自动强制跳转到手机的权限设置页面的,所以我选择了在 OnResume 这个生命周期函数里面进行请求权限,如果拒绝的话,就给填转到手机的设置页面,但是运行以后发现无法跳转,而将权限请求的方法放到其">
   
-    <link rel="alternative" href="/atom.xml" title="inRush" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="我的个人日记本" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -74,7 +74,7 @@ var _hmt = _hmt || [];
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inRush</a></h1>
+		  <h1 class="header-author"><a href="/">我的个人日记本</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">沉迷学习,日渐消瘦</p>
@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inRush</h1>
+			  <h1 class="header-author js-header-author">我的个人日记本</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>沉迷学习,日渐消瘦<i class="icon icon-quo-right"></i></p>
@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
 <p><strong><em>遇到 bug 过程:</em></strong><br>在一次写一个Common库的时候,写测试代码,测试Android 6.0权限请求,因为本来设计为没有权限的话,是不能进入APP的,是会自动强制跳转到手机的权限设置页面的,所以我选择了在 OnResume 这个生命周期函数里面进行请求权限,如果拒绝的话,就给填转到手机的设置页面,但是运行以后发现无法跳转,而将权限请求的方法放到其他地方,拒绝了以后是可以跳转到设置页面的,这就奇怪了. 调试的时候,发现OnResume方法被无限调用.</p>
 <p><strong><em>bug 描述:</em></strong><br>在OnResume生命周期函数中跳转设置页面,OnResume方法被无限调用 </p>
 <p><strong><em>解决方法:</em></strong><br>将动态请求权限的方法放到OnStart这个生命周期方法里.</p>
-<p><strong><em>参考:</em></strong><br><a href="https://github.com/permissions-dispatcher/PermissionsDispatcher/issues/90" target="_blank" rel="external">Asking for permission in onResume might cause infinite loop</a></p>
+<p><strong><em>参考:</em></strong><br><a href="https://github.com/permissions-dispatcher/PermissionsDispatcher/issues/90" target="_blank" rel="noopener">Asking for permission in onResume might cause infinite loop</a></p>
 </blockquote>
 
       
@@ -366,29 +366,7 @@ var _hmt = _hmt || [];
       <div id="vcomment" class="comment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<style>
-.comments{
-  background: #fff;
-  margin: 0 30px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: all 0.2s ease-in;
-  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-.mid-col.show .comments,
-.mid-col.show .gitment-comment-header,
-.mid-col.show .gitment-editor-body textarea{
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.gitment-comment-header{
-  padding: 5px;
-}
-.gitment-editor-footer button,
-.gitment-comment-main,
-.gitment-editor-main{
-  border-radius: 3px;
-}
-</style>
+
 <script>
    var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
@@ -417,7 +395,8 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 inRush
+    		&copy; 2022 我的个人日记本
+				<a href="https://beian.miit.gov.cn/">浙ICP备17044324号</a>
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -488,6 +467,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -508,11 +491,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bug</a>
+                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ndk</a>
+                <a href="javascript:void(0)" class="js-tag color4">bug</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,18 +504,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">async</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">handler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,15 +519,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">basis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cargo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">backend</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">handler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">async</a>
               </li>
             
             <div class="clearfix"></div>
